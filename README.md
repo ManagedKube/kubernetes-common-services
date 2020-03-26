@@ -8,15 +8,19 @@ These are great services but it takes time to set them up and integrate it into 
 This project maintains all of these open source applications for you so you don't have to do it.
 
 # Table of Content
+- [kubernetes-common-services](#kubernetes-common-services)
+- [Table of Content](#table-of-content)
 - [Supported Services:](#supported-services-)
 - [How this works](#how-this-works)
 - [What this project provides](#what-this-project-provides)
-- [How to set this up:](#how-to-set-this-up-)
-  * [1) Copy the items from this repository to your repository](#1--copy-the-items-from-this-repository-to-your-repository)
-  * [2) Install the Flux Operators](#2--install-the-flux-operators)
-  * [3) Deploy items into your Kubernetes cluster](#3--deploy-items-into-your-kubernetes-cluster)
+- [How to set this up](#how-to-set-this-up)
+  * [Copy the items from this repository to your repository](#copy-the-items-from-this-repository-to-your-repository)
+  * [Install the Flux Operators](#install-the-flux-operators)
+  * [Deploy items into your Kubernetes cluster](#deploy-items-into-your-kubernetes-cluster)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
+
 
 
 # Supported Services:
@@ -39,18 +43,18 @@ We are leveraging [Weaveworks Flux](https://github.com/fluxcd/flux) to provide u
 # What this project provides
 There is no magic here.  Everything in here you can do and everything we use is absolutely 100% open source.  The value add this project provides is an opinionated way of deploying these items and the curration of each service.  We put in the work to make sure everything is structured correctly, updated in a timely manor, and reasonably easy to use.  The other major piece is that we validate that these pieces are working in various types of Kubernetes clusters and cloud.  
 
-# How to set this up:
+# How to set this up
 
-## 1) Copy the items from this repository to your repository
+## Copy the items from this repository to your repository
 To use these items, you need to copy the folder `<repo root>/kubernetes` to the root of your repository.  It has to be at the root of your repository because all of the paths are pointing from that fixed location.  You can change the location but then you will have to change various paths in the deployment files to point to the correct location.
 
 You don't need to enable everything.  Only copy the services that you want to deploy out.
 
-## 2) Install the Flux Operators
+## Install the Flux Operators
 
 There are detailed instructions on how to do this [here](./kubernetes/helm/flux/).
 
-## 3) Deploy items into your Kubernetes cluster
+## Deploy items into your Kubernetes cluster
 
 There are detailed instructions on how to do this [here](./kubernetes/flux/).
 
