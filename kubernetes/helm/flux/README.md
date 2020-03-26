@@ -4,6 +4,12 @@ Flux is a GitOps workflow tool that runs an operator in each cluster you want it
 
 Here is the official documentation for reference: [https://docs.fluxcd.io/en/latest/introduction.html](https://docs.fluxcd.io/en/latest/introduction.html)
 
+# Requirements
+You need these CLI tools locally:
+
+* [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+* [helm3](https://helm.sh/docs/intro/install/)
+
 # Deploy the Flux Operator
 
 ```
