@@ -8,7 +8,6 @@ These are great services but it takes time to set them up and integrate it into 
 This project maintains all of these open source applications for you so you don't have to do it.
 
 # Table of Content
-- [Table of Content](#table-of-content)
 - [Supported Services](#supported-services)
 - [How this works](#how-this-works)
 - [What this project provides](#what-this-project-provides)
