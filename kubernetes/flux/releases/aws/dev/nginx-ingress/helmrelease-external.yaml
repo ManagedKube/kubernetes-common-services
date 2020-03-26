@@ -6,13 +6,15 @@ metadata:
 spec:
   releaseName: nginx-ingress-external
   chart:
-    git: git@github.com:ManagedKube/kubernetes-ops.git
-    path: kubernetes/helm/nginx-ingress
-    ref: master
+    repository: https://kubernetes-charts.storage.googleapis.com/
+    name: nginx-ingress
     version: 1.33.4
-  values:
-    nginx-ingress:
-      controller:
-        electionID: ingress-controller-leader-external
-        ingressClass: nginx-external
-
+  valuesFrom:
+  - configMapKeyRef:
+      name: helmrelease-base-values
+      key: base-values.yaml
+      optional: false    
+  - configMapKeyRef:
+      name: helmrelease-env-values
+      key: values.yaml
+      optional: false
