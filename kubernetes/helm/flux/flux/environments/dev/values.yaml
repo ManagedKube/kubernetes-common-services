@@ -1,5 +1,5 @@
 flux:
   git:
-    url: git@github.com:ManagedKube/kubernetes-ops.git
+    url: git@github.com:ManagedKube/kubernetes-common-services.git
     branch: master
     path: "kubernetes/flux/releases/gcp/dev"
