@@ -8,9 +8,8 @@ These are great services but it takes time to set them up and integrate it into 
 This project maintains all of these open source applications for you so you don't have to do it.
 
 # Table of Content
-- [kubernetes-common-services](#kubernetes-common-services)
 - [Table of Content](#table-of-content)
-- [Supported Services:](#supported-services-)
+- [Supported Services:](#supported-services)
 - [How this works](#how-this-works)
 - [What this project provides](#what-this-project-provides)
 - [How to set this up](#how-to-set-this-up)
@@ -23,7 +22,7 @@ This project maintains all of these open source applications for you so you don'
 
 
 
-# Supported Services:
+# Supported Services
 
 * [cert-manager](https://github.com/jetstack/cert-manager) (For HTTPS certs)
 * [external-dns](https://github.com/helm/charts/tree/master/stable/external-dns) (manages your DNS automatically via annotations)
