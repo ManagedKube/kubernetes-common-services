@@ -7,6 +7,18 @@ These are great services but it takes time to set them up and integrate it into 
 
 This project maintains all of these open source applications for you so you don't have to do it.
 
+# Table of Content
+- [Supported Services:](#supported-services-)
+- [How this works](#how-this-works)
+- [What this project provides](#what-this-project-provides)
+- [How to set this up:](#how-to-set-this-up-)
+  * [1) Copy the items from this repository to your repository](#1--copy-the-items-from-this-repository-to-your-repository)
+  * [2) Install the Flux Operators](#2--install-the-flux-operators)
+  * [3) Deploy items into your Kubernetes cluster](#3--deploy-items-into-your-kubernetes-cluster)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
+
 # Supported Services:
 
 * [cert-manager](https://github.com/jetstack/cert-manager) (For HTTPS certs)
