@@ -20,8 +20,6 @@ This project maintains all of these open source applications for you so you don'
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
 
-
-
 # Supported Services
 
 * [cert-manager](https://github.com/jetstack/cert-manager) (For HTTPS certs)
