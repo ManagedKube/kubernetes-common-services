@@ -1,7 +1,7 @@
 # kubernetes-common-services
 These services help make it easier to manage your applications environment in Kubernetes.
 
-When running your application in Kubernetes, you often add various open source applications to your cluster to help you do stuff such as automatically getting Let's Encrypt certificates for your HTTPS endpoints and automatically renewing them, automatically syncing DNS entries that you have on an ingress to your DNS provider, monitoring and alerting for your cluster.  
+When running your application in Kubernetes, you often add various open source applications to your cluster to help you do stuff such as automatically getting Let's Encrypt certificates for your HTTPS endpoints and automatically renewing them, automatically syncing DNS entries that you have on an ingress to your DNS provider, monitoring and alerting for your cluster, and many more items.
 
 These are great services but it takes time to set them up and integrate it into your cluster and then over the lifetime of it, you have to revisit each one to update them.  This is all undifferentiated heavy lifting that you shouldn't have to do.
 
