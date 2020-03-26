@@ -1,2 +1,39 @@
 # kubernetes-common-services
-Services that helps make it easier to manage your application in Kubernetes
+These services help make it easier to manage your applications environment in Kubernetes.
+
+When running your application in Kubernetes, you often add various open source applications to your cluster to help you do stuff such as automatically getting Let's Encrypt certificates for your HTTPS endpoints and automatically renewing them, automatically syncing DNS entries that you have on an ingress to your DNS provider, monitoring and alerting for your cluster.  
+
+These are great services but it takes time to set them up and integrate it into your cluster and then over the lifetime of it, you have to revisit each one to update them.  This is all undifferentiated heavy lifting that you shouldn't have to do.
+
+This project maintains all of these open source applications for you so you don't have to do it.
+
+# Supported Services:
+
+* cert-manager (For HTTPS certs)
+* external-dns (manages your DNS automatically via annotations)
+* kube-metric-adapter (Scale by any Prometheus metrics)
+* nginx-ingress (To expose HTTP services to consumers from outside of the cluster such as the internet)
+* prometheus (Monitoring and alerting for your cluster)
+* prometheus-blockbox-exporter (checks on URLs)
+* sealed-secrets (Keep your secrets encrypted in Git and delivered as secrets into Kubernetes)
+
+If you don't see a service that you want to use but want us to support it, please open an issue in this project and let us know!
+
+# How this works
+We are leveraging [Weaveworks Flux](https://github.com/fluxcd/flux) to provide us with the GitOps workflow.  
+
+![Weaveworks flux operator](./docs/images/fluxcd-helm-operator-diagram.png "Weaveworks Flux Operator")
+
+# What this project provides
+There is no magic here.  Everything in here you can do and everything we use is absolutely 100% open source.  The value add this project provides is an opinionated way of deploying these items and the curration of each service.  We put in the work to make sure everything is structured correctly, updated in a timely manor, and reasonably easy to use.  The other major piece is that we validate that these pieces are working in various types of Kubernetes clusters and cloud.  
+
+# How to set this up:
+
+## 1) Install the Flux Operators
+
+There are detailed instructions on how to do this [here](./kubernetes/helm/flux/).
+
+## 2) Deploy items into your Kubernetes cluster
+
+There are detailed instructions on how to do this [here](./kubernetes/flux/).
+
