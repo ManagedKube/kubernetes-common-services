@@ -7,6 +7,8 @@ These are great services but it takes time to set them up and integrate it into 
 
 This project maintains all of these open source applications for you so you don't have to do it.
 
+![ManagedKube Kubernetes Common Services](./docs/common-services.png "ManagedKube Kubernetes Common Services")
+
 # Table of Content
 - [Supported Services](#supported-services)
 - [How this works](#how-this-works)
