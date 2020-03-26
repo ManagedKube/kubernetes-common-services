@@ -4,6 +4,7 @@ metadata:
   name: nginx-ingress-external
   namespace: ingress
 spec:
+  helmVersion: v3
   releaseName: nginx-ingress-external
   chart:
     repository: https://kubernetes-charts.storage.googleapis.com/
