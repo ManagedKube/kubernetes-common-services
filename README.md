@@ -54,3 +54,7 @@ There are detailed instructions on how to do this [here](./kubernetes/helm/flux/
 
 There are detailed instructions on how to do this [here](./kubernetes/flux/).
 
+# Community
+
+* Email: help@managedkube.com
+* [@gar454 on Kubernetes Slack](https://app.slack.com/client/T09NY5SBT/D1QQUQEG1)
