@@ -29,7 +29,7 @@ There is no magic here.  Everything in here you can do and everything we use is 
 
 # How to set this up:
 
-## 1) Copy the items from this repositor to your repository
+## 1) Copy the items from this repository to your repository
 To use these items, you need to copy the folder `<repo root>/kubernetes` to the root of your repository.  It has to be at the root of your repository because all of the paths are pointing from that fixed location.  You can change the location but then you will have to change various paths in the deployment files to point to the correct location.
 
 You don't need to enable everything.  Only copy the services that you want to deploy out.
