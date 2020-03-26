@@ -10,10 +10,12 @@ spec:
     name: nginx-ingress
     version: 1.33.4
   valuesFrom:
+  # Base values for all environments
   - configMapKeyRef:
       name: helmrelease-base-values
       key: base-values.yaml
-      optional: false    
+      optional: false
+  # This environment specific values
   - configMapKeyRef:
       name: helmrelease-env-values
       key: values.yaml
