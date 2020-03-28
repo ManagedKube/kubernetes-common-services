@@ -5,6 +5,7 @@ metadata:
   name: prometheus-operator
   namespace: monitoring
 spec:
+  helmVersion: v3
   releaseName: prometheus-operator
   chart:
     name: prometheus-operator

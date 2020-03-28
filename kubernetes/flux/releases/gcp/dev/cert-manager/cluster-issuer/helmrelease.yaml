@@ -5,6 +5,7 @@ metadata:
   name: cluster-issuer
   namespace: cert-manager
 spec:
+  helmVersion: v3
   releaseName: cluster-issuer
   chart:
     git: git@github.com:ManagedKube/kubernetes-ops.git

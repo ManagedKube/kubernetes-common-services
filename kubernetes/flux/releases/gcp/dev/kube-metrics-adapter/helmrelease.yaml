@@ -5,6 +5,7 @@ metadata:
   name: kube-metrics-adapter
   namespace: kube-system
 spec:
+  helmVersion: v3
   releaseName: kube-metrics-adapter
   chart:
     git: git@github.com:ManagedKube/kubernetes-ops.git

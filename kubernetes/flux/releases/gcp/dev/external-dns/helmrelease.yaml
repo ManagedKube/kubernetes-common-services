@@ -5,6 +5,7 @@ metadata:
   name: external-dns
   namespace: external-dns
 spec:
+  helmVersion: v3
   releaseName: external-dns
   chart:
     name: external-dns
