@@ -24,11 +24,12 @@ This project maintains all of these open source applications for you so you don'
 # Supported Services
 
 * [cert-manager](https://github.com/jetstack/cert-manager) (For HTTPS certs)
+* [cluster-turndown](https://github.com/kubecost/cluster-turndown) (Automated turndown of Kubernetes clusters on specific schedules.)
 * [external-dns](https://github.com/helm/charts/tree/master/stable/external-dns) (manages your DNS automatically via annotations)
 * [kube-metric-adapter](https://github.com/zalando-incubator/kube-metrics-adapter) (Scale by any Prometheus metrics)
 * [nginx-ingress](https://github.com/helm/charts/tree/master/stable/nginx-ingress) (To expose HTTP services to consumers from outside of the cluster such as the internet)
-* [prometheus-operator](https://github.com/helm/charts/tree/master/stable/prometheus-operator) (Monitoring and alerting for your cluster)
 * [prometheus-blockbox-exporter](https://github.com/prometheus/blackbox_exporter) (checks on URLs)
+* [prometheus-operator](https://github.com/helm/charts/tree/master/stable/prometheus-operator) (Monitoring and alerting for your cluster)
 * [sealed-secrets](https://github.com/bitnami-labs/sealed-secrets) (Keep your secrets encrypted in Git and delivered as secrets into Kubernetes)
 
 If you don't see a service that you want to use but want us to support it, please open an issue in this project and let us know!
