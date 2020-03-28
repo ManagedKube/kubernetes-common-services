@@ -1,2 +1,9 @@
 ---
-cert-manager: {}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: helmrelease-env-values
+  namespace: cert-manager
+data:
+  base-values.yaml: |
+    {}
