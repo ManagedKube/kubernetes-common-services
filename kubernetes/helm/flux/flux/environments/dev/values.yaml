@@ -1,5 +1,5 @@
 flux:
   git:
     url: git@github.com:ManagedKube/kubernetes-common-services.git
-    branch: master
+    branch: structure-update
     path: "kubernetes/flux/releases/gcp/dev,kubernetes/flux/releases/base-values"
