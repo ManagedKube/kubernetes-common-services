@@ -1,3 +1,4 @@
+---
 apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
@@ -6,16 +7,17 @@ metadata:
 spec:
   releaseName: prometheus-operator
   chart:
-    git: git@github.com:ManagedKube/kubernetes-ops.git
-    path: kubernetes/helm/prometheus-operator
-    ref: master
+    name: prometheus-operator
     version: 8.11.1
+    repository: https://kubernetes-charts.storage.googleapis.com/
   valuesFrom:
-  - chartFileRef:
-      # path within the helm chart (from git repo) where the file is located.  E.g path from the spec.chart.path location.  Not from the Git repo root.
-      path: values.yaml
+  # Base values for all environments
+  - configMapKeyRef:
+      name: helmrelease-base-values
+      key: base-values.yaml
       optional: false
-  - chartFileRef:
-      # path within the helm chart (from git repo) where the file is located.  E.g path from the spec.chart.path location.  Not from the Git repo root.
-      path: ../../flux/releases/gcp/dev/prometheus-operator/values.yaml
+  # This environment specific values
+  - configMapKeyRef:
+      name: helmrelease-env-values
+      key: values.yaml
       optional: false
