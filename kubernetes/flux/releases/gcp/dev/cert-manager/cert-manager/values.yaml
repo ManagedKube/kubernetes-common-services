@@ -5,5 +5,5 @@ metadata:
   name: helmrelease-env-values
   namespace: cert-manager
 data:
-  base-values.yaml: |
+  values.yaml: |
     {}
