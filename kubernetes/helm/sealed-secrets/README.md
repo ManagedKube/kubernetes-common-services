@@ -18,8 +18,8 @@ Doesnt seem to work on a GKE cluster
 
 ```
 # Secret source information
-NAMESPACE=external-dns
-SECRET_NAME=gcp-credentials-json
+NAMESPACE=turndown
+SECRET_NAME=cluster-turndown-service-key
 FILE_PATH=/media/veracrypt1/managedkube/sa-managedkube-admin.json
 
 # kubeseal info
