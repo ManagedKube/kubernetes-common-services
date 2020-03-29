@@ -9,6 +9,7 @@ You need these CLI tools locally:
 
 * [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 * [helm3](https://helm.sh/docs/intro/install/)
+* [fluxctl](https://docs.fluxcd.io/en/1.18.0/references/fluxctl.html)
 
 # Deploy the Flux Operator
 
