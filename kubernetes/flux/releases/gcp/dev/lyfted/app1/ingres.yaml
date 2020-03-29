@@ -1,0 +1,22 @@
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: lyfted-1
+  annotations:
+    kubernetes.io/ingress.class: "nginx-external"
+    external-dns.alpha.kubernetes.io/hostname: lyfted-1.dev.k8s.managedkube.com
+    certmanager.k8s.io/cluster-issuer: prod
+spec:
+  tls:
+  - hosts:
+    - lyfted-1.dev.k8s.managedkube.com
+    secretName: testsecret-tls
+  rules:
+    - host: lyfted-1.dev.k8s.managedkube.com
+      http:
+        paths:
+        - path: /
+          backend:
+            serviceName: lyfted-1
+            servicePort: 8080

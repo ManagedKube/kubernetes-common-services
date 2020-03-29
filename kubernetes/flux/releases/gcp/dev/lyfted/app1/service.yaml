@@ -1,0 +1,12 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lyfted-1
+spec:
+  selector:
+    app: lyfted-1
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
