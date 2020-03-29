@@ -5,7 +5,7 @@ When running your application in Kubernetes, you often add various open source a
 
 These services are super fantastic and works really well but it takes time to set them up, integrate it into your cluster and then over the lifetime of it, you have to revisit each one to update them.  This is all undifferentiated heavy lifting that you shouldn't have to do.
 
-This project maintains all of these open source applications for you so you don't have to do it.
+This project integrates and maintains (with updates) all of these open source applications for you so you don't have to do it.
 
 ![ManagedKube Kubernetes Common Services](./docs/common-services.png "ManagedKube Kubernetes Common Services")
 
