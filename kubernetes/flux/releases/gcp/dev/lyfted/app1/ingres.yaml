@@ -3,6 +3,7 @@ apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: lyfted-1
+  namespace: lyfted
   annotations:
     kubernetes.io/ingress.class: "nginx-external"
     external-dns.alpha.kubernetes.io/hostname: lyfted-1.dev.k8s.managedkube.com

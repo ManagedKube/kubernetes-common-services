@@ -3,10 +3,11 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: lyfted-1
+  namespace: lyfted
   labels:
     app: lyfted-1
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: lyfted-1
