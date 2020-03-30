@@ -17,7 +17,7 @@
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
 ## What is this project
-This project helps make it easier to manage your application environment in Kubernetes.
+This project is here to make it easier to run common services in kubernetes by taking care of it for you so that you can get to working on your application faster instead of dealing with infrastructure components.
 
 When running your application in Kubernetes, you often add various open source applications to your cluster to help you automatically get Let's Encrypt certificates for your HTTPS endpoints and automatically renewing them, automatically sync DNS entries that you have on an ingress to your DNS provider, monitoring and alerting for your cluster, and many more items.
 
