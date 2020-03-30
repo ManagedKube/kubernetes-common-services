@@ -28,13 +28,13 @@ This project integrates and maintains (with updates) all of these open source ap
 ![ManagedKube Kubernetes Common Services](./docs/common-services.png "ManagedKube Kubernetes Common Services")
 
 ## Who is this project for
-This project is for people who do not want to manage these common applications and let the open source community manage it them.  Just like how you don't manage the various pieces to Kubernetes and integrate it together, you instead use a product like GKE, EKS, AKS, Rancher, Kops, Kubespray, etc.  You don't also have to manage these common Kubernetes services either.  If you want to offload that work, this project is for you.
+This project is for people who do not want to manage these common applications and let the open source community manage it.  Just like how you don't manage the various pieces to Kubernetes and integrate it together, you instead use a product like GKE, EKS, AKS, Rancher, Kops, Kubespray, etc.  You don't also have to manage these common Kubernetes services either.  If you want to offload that work, this project is for you.
 
 ## Why do I want to use this project
 Setting up and maintaining these application and integrating it with your cloud is a lot of work you have to do before you even start on your application.  This project helps accelerate your process and gets you to running your application on Kubernetes faster by taking care of the undifferentiated heavy lifting of the infrastructure work for you and keeping it maintained going forward.
 
 ## What this project provides
-There is no magic here.  Everything in here you can do and everything we use is absolutely 100% open source.  The value add this project provides is an opinionated way of deploying these items and the curration of each service.  We put in the work to make sure everything is structured correctly, updated in a timely manor, and reasonably easy to use.  The other major piece is that we validate that these pieces are working in various types of Kubernetes clusters and cloud.  
+There is no magic here.  Everything in here you can do and everything we use is absolutely 100% open source.  The value add this project provides is an opinionated way of deploying these items and the curration of each service.  We put in the work to make sure everything is structured correctly, updated in a timely manor, and reasonably easy to use.  The other major piece is that we validate that these pieces are working in various types of Kubernetes clusters and clouds.
 
 ## Supported Services
 
