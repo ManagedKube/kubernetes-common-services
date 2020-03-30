@@ -5,7 +5,7 @@ Source: https://github.com/helm/charts/tree/master/stable/external-dns
 
 
 # IAM Permissions needed for this app:
-https://github.com/helm/charts/tree/master/stable/external-dns#iam-permissions
+https://github.com/kubernetes-sigs/external-dns/blob/master/docs/tutorials/aws.md#iam-permissions
 
 You can create an AWS key specifically for this application with these permissions
 
