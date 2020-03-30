@@ -12,12 +12,6 @@ APPLICATION_NAME=flux
 dependency:
 	${HELM_BINARY} dependency build
 
-apply-crd:
-	kubectl apply --validate=false -f https://raw.githubusercontent.com/jetstack/cert-manager/release-${VERSION}/deploy/manifests/00-crds.yaml
-
-delete-crd:
-	kubectl delete -f https://raw.githubusercontent.com/jetstack/cert-manager/release-${VERSION}/deploy/manifests/00-crds.yaml
-
 apply:
 	${HELM_BINARY} upgrade -i ${APPLICATION_NAME} ./ --wait \
 	--namespace ${KUBE_NAMESPACE} \

@@ -21,23 +21,23 @@ cd ./flux
 
 For each environment you want to deploy Flux into and for the Git repository you want it to watch, you will have to configure this.
 
-For example, if you have a dev environment watching this repository, you will make a values file like (`./environments/dev/values.yaml`):
+For example, if you have a `dev` environment in the cloud `gcp` watching this repository, you will make a values file like (`./environments/gcp/dev/values.yaml`):
 
 ```yaml
 flux:
   git:
     url: git@github.com:ManagedKube/kubernetes-ops.git
     branch: master
-    path: "kubernetes/flux"
+    path: "kubernetes/flux/releases/gcp/dev,kubernetes/flux/releases/base-values"
 ```
 
-This pointing to the repository with the `url` at the `branch` and at a certain path in this repository it is watching.
+This is pointing to the repository int the `url` key and at the `branch`.  The `path` configures what this Flux instantiation should monitor in this repository in a comma separated list.  In this case, it is set to watch the release files for our environment `dev`: `kubernetes/flux/releases/gcp/dev`.  Notice we named a directory named `dev` here as well.  It is recommended trying to keep all of the environment names consistent to make it easier to denote what environment these configurations belongs to.  The second path is watching the base values which applies to all environments (we'll be talking about what that does later).
 
 ## Deploy it out to your Kubernetes cluster
+The `ENVIRONMENT` variable name is the name of the folder you just created in the previous step.
 
 ```
-make ENVIRONMENT=dev apply-crd
-make ENVIRONMENT=dev apply
+make ENVIRONMENT=gcp/dev apply
 ```
 
 ## Get the Git public key
@@ -71,8 +71,11 @@ With this Flux CRD, we can express Helm deployments in a yaml file and the Flux 
 
 ```
 cd ./helm-operator
-make ENVIRONMENT=dev apply-crd
-make ENVIRONMENT=dev apply
+make ENVIRONMENT=gcp/dev apply-crd
+make ENVIRONMENT=gcp/dev apply
 ```
 
+# Why we are using Helm to deploy Flux and not the fluxctl tool?
+While it is easier to use the `fluxtctl` tool to get started, it does not provide us with the lifecycle management of Flux that we require in a real world setting when maintaining live infrastructure.  The `fluxctl` tool has you creating flux with a CLI command inputting the same parameters we are inputting in our `values.yaml` files.  The problem with this is how to we make this reproducible and reflected in Git?  Do we write a script to wrap around the CLI command and then pass in a values file of some sort to this script to use?  We can but that sounds pretty much like what Helm does.  So why not just use Helm?
 
+So it might seem like we are taking a more complex route and we agree, if you are just getting started it is a lot to take in at first.  In the long run we have found that maintaining the lifecycle of these configs in this manor works better and it is actually less for us to maintain.
