@@ -28,7 +28,7 @@ This project integrates and maintains (with updates) all of these open source ap
 ![ManagedKube Kubernetes Common Services](./docs/common-services.png "ManagedKube Kubernetes Common Services")
 
 ## Who is this project for
-This project is for people who do not want to manage these common applications and let the open source community manage it them.  Just like you don't manage the various pieces to Kubernetes and use a product like GKE, EKS, AKS, Rancher, Kops, Kubespray, etc you don't also have to manage these common Kubernetes services either.  This project, is for you if you want to offload that work.
+This project is for people who do not want to manage these common applications and let the open source community manage it them.  Just like how you don't manage the various pieces to Kubernetes and integrate it together, you instead use a product like GKE, EKS, AKS, Rancher, Kops, Kubespray, etc.  You don't also have to manage these common Kubernetes services either.  If you want to offload that work, this project is for you.
 
 ## Why do I want to use this project
 Setting up and maintaining these application and integrating it with your cloud is a lot of work you have to do before you even start on your application.  This project helps accelerate your process and gets you to running your application on Kubernetes faster by taking care of the undifferentiated heavy lifting of the infrastructure work for you and keeping it maintained going forward.
