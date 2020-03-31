@@ -1,0 +1,4 @@
+---
+flux:
+  syncGarbageCollection:
+    enabled: true
