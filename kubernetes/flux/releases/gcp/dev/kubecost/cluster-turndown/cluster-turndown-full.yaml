@@ -195,7 +195,7 @@ spec:
         - name: TURNDOWN_DEPLOYMENT
           value: cluster-turndown
         - name: GOOGLE_APPLICATION_CREDENTIALS
-          value: /var/keys/service-key.json
+          value: /var/keys/sa-managedkube-admin.json
         ports:
         - name: http-server
           containerPort: 9731
