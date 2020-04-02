@@ -17,6 +17,12 @@ You need these CLI tools locally:
 cd ./flux
 ```
 
+## Create the Flux's namespace
+
+```
+kubectl apply -f namespaces/namespace.yaml
+```
+
 ## Add an environment's values.yaml file
 
 For each environment you want to deploy Flux into and for the Git repository you want it to watch, you will have to configure this.
