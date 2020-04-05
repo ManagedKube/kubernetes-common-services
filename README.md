@@ -49,6 +49,9 @@ There is no magic here.  Everything in here you can do and everything we use is 
 
 If you don't see a service that you want to use but want us to support it, please open an issue in this project and let us know!
 
+## Do I have to use every single one of these services?
+No, you can pick and choose which one you want to use.
+
 # How this works
 We are leveraging [Weaveworks Flux](https://github.com/fluxcd/flux) to provide us with the GitOps workflow.  
 
