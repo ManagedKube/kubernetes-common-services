@@ -10,7 +10,7 @@ spec:
   chart:
     repository: https://kubernetes-charts.storage.googleapis.com/
     name: nginx-ingress
-    version: 1.34.2
+    version: 1.36.0
   valuesFrom:
   # Base values for all environments
   - configMapKeyRef:
