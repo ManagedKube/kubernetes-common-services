@@ -8,7 +8,7 @@ spec:
   chart:
     repository: https://kubernetes-charts.storage.googleapis.com/
     name: nginx-ingress
-    version: 1.33.4
+    version: 1.36.0
   valuesFrom:
   - configMapKeyRef:
       name: helmrelease-base-values
