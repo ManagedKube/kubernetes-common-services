@@ -1,9 +1,10 @@
 Prometheus Operator upgrade to 8.12.12
 ======================================
 
-Looking here at the time version `8.12.12` was the latest version:  https://github.com/helm/charts/blob/master/stable/prometheus-operator/Chart.yaml#L15
+The latest version at the time of the writing is: `8.12.12`
+* Versions can be found here: https://github.com/helm/charts/blob/master/stable/prometheus-operator/Chart.yaml#L15
 
-Here is the commit to update the `prometheus-operator` Helm chart to version 8.12.12: https://github.com/ManagedKube/kubernetes-common-services/commit/bb283b23ea918c96339818bb398863a7eb34f871
+Here is the commit to update the `prometheus-operator` Helm chart to version `8.12.12`: https://github.com/ManagedKube/kubernetes-common-services/commit/bb283b23ea918c96339818bb398863a7eb34f871
 
 However, it looks like the update operation didn't fully work:
 
@@ -68,7 +69,7 @@ Something about a `Timeout` from the `HelmRelease`
       Message:               failed to upgrade chart for release [prometheus-operator]: failed to create resource: Timeout: request did not complete within requested timeout
 ```
 
-Looking at the logs of the Flux Helm Operator, it sounds like it can't sync the `status` field for some reason:
+Looking at the logs from the Flux Helm Operator, it sounds like it can't sync the `status` field for some reason:
 
 ```
 kubectl -n flux logs helm-operator-77cb687cc7-4dz7q --since 1h | grep prom
@@ -138,14 +139,14 @@ Error: UPGRADE FAILED: cannot patch "prometheus-operator-alertmanager.rules" wit
 
 This seems like the same or similar error that the Helm Operator is reporting.
 
-At this point, I still can tell why.
+At this point, I still can't tell why.
 
 With some Google searching on the failure terms such as:
 * `UPGRADE FAILED: cannot patch "prometheus-operator" with kind Timeout: request did not complete within requested timeout 30s`
 
-I cam to this GitHub issue: https://github.com/helm/charts/issues/19928
+I came to this GitHub issue: https://github.com/helm/charts/issues/19928
 
-The issue is eluding to the addmission web hooks are timing out and failing and you can turn those off to by pass this error by running:
+The issue is eluding to the addmission web hooks are timing out and failing and you can turn it off to by pass this error by running:
 
 ```
 helm -n monitoring upgrade prometheus-operator \
@@ -218,7 +219,7 @@ There seems to be a workaround/fix for this error but do we really want to diabl
 Looking at the prometheus-operator Helm chart this is a GKE specific issue:
 * https://github.com/helm/charts/tree/master/stable/prometheus-operator#running-on-private-gke-clusters
 
-tl;dr is that when running a private GKE cluster, you need to open a firewall rule to allow the private GKE masters to reach the pod for this validation.
+**tl;dr** is that when running a private GKE cluster, you need to open a firewall rule to allow the private GKE masters to reach the pod for this validation.
 
 I think the fix is to open up the firewall for the private GKE masters to reach it and the fix is not disabling this since it does the checks and checks seems to be a good thing to have.
 
@@ -229,7 +230,7 @@ I created a quick Terraform module to add in the firewall to my GCP network:
 
 Just as a test, I enabled allow all on all ports from the GKE private Kube masters and this worked.  I think this verifies that it is a port issue and by opening up the correct port, this will work.
 
-Just from a previous experience we has problems with the prometheus-adapter for HPA in a private GKE cluster and the private GKE Kube master needed to reach it on port `6443`.  Going to try this out first.
+From a previous experience we had problems with the prometheus-adapter for HPA in a private GKE cluster and the private GKE Kube master needed to reach it on port `6443`.
 
 To get prometheus-operator back to the update failure state, I am going to delete it and let the Flux `HelmRelease` install it again:
 
@@ -259,7 +260,7 @@ prometheus-operator-prometheus-node-exporter   ClusterIP   10.32.67.226   <none>
 
 None of those worked.  One of the Github issues above metioned port `8443`.  When I opened up that port, the prometheus upgrade worked!
 
-However, I didn't know where port attached to.  Describing all of the pods and grepping for `8443` gave the answer:
+However, I didn't know where the port was attached to.  Describing all of the pods and grepping for `8443` gave the answer:
 
 ```
 kubectl -n monitoring describe pods
@@ -321,7 +322,7 @@ Ok, it is listening on this port.  What does this tihng do?
 
 A quick search lead to the DockerHub page for it:  https://hub.docker.com/r/squareup/ghostunnel
 
-Looks like this is just a front end with mTLS for some HTTP backend, and the backend is pointed `--target=127.0.0.1:8080`.  From looking at the pod definition in the last output, this is the `prometheus-operator` container.  It looks like the webhook validations are going here.
+Looks like this is just a front end with mTLS for some HTTP backend, and the backend is pointed to `--target=127.0.0.1:8080` in the same pod.  From looking at the pod definition in the last output, this is the `prometheus-operator` container.  It looks like the webhook validations are going here.
 
 That seems to make sense and that solve the mystery.  
 
