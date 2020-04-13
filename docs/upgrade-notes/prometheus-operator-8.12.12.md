@@ -9,7 +9,7 @@ Here is the commit to update the `prometheus-operator` Helm chart to version `8.
 However, it looks like the update operation didn't fully work:
 
 ```yaml
- kubectl -n monitoring describe hr                       
+$ kubectl -n monitoring describe hr                       
 Name:         prometheus-operator
 Namespace:    monitoring
 Labels:       fluxcd.io/sync-gc-mark=sha256.1g1AWjFhC1miidT8l5yKS2Euq7YoyocsQAO1pl4bnsY
@@ -72,7 +72,7 @@ Something about a `Timeout` from the `HelmRelease`
 Looking at the logs from the Flux Helm Operator, it sounds like it can't sync the `status` field for some reason:
 
 ```
-kubectl -n flux logs helm-operator-77cb687cc7-4dz7q --since 1h | grep prom
+$ kubectl -n flux logs helm-operator-77cb687cc7-4dz7q --since 1h | grep prom
 ...
 ...
 ts=2020-04-12T16:59:10.30924419Z caller=release.go:347 component=release release=prometheus-operator targetNamespace=monitoring resource=monitoring:helmrelease/prometheus-operator helmVersion=v3 warning="unable to sync release with status failed" action=skip
@@ -82,14 +82,14 @@ ts=2020-04-12T16:59:10.30924419Z caller=release.go:347 component=release release
 
 Looking at Helm, the update `failed`!
 ```
-helm -n monitoring list
+$ helm -n monitoring list
 NAME                    NAMESPACE       REVISION        UPDATED                                 STATUS  CHART                           APP VERSION
 prometheus-operator     monitoring      3               2020-04-12 16:14:21.071440988 +0000 UTC failed  prometheus-operator-8.12.12     0.37.0 
 ```
 
 And the pods did roll in with the new updates (can tell by the pods restarting recently):
 ```
-kubectl -n monitoring get pods 
+$ kubectl -n monitoring get pods 
 NAME                                                      READY   STATUS    RESTARTS   AGE
 alertmanager-prometheus-operator-alertmanager-0           2/2     Running   0          2d9h
 prometheus-operator-grafana-56c5dd798c-tnzhx              2/2     Running   0          61m
@@ -114,7 +114,7 @@ If the initial install does not take long, then it will succeed and this might b
 Waiting a few minutes, the prometheus-operator is deployed back out in a successful deployment:
 
 ```
-helm -n monitoring list
+$ helm -n monitoring list
 NAME                    NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                           APP VERSION
 prometheus-operator     monitoring      1               2020-04-12 18:05:11.584522845 +0000 UTC deployed        prometheus-operator-8.12.12     0.37.0
 ```
@@ -124,7 +124,7 @@ This looks to be like an update issue only.
 Testing a manual upgrade with no changes to see what would happen.
 
 ```
-helm -n monitoring upgrade prometheus-operator stable/prometheus-operator
+$ helm -n monitoring upgrade prometheus-operator stable/prometheus-operator
 coalesce.go:196: warning: cannot overwrite table with non table for storageSpec (map[])
 coalesce.go:196: warning: cannot overwrite table with non table for storageSpec (map[])
 manifest_sorter.go:192: info: skipping unknown hook: "crd-install"
@@ -149,7 +149,7 @@ I came to this GitHub issue: https://github.com/helm/charts/issues/19928
 The issue is eluding to the addmission web hooks are timing out and failing and you can turn it off to by pass this error by running:
 
 ```
-helm -n monitoring upgrade prometheus-operator \
+$ helm -n monitoring upgrade prometheus-operator \
 --set prometheusOperator.admissionWebhooks.enabled=false \
 --set prometheusOperator.admissionWebhooks.patch.enabled=false \
 --set prometheusOperator.tlsProxy.enabled=false \
@@ -183,7 +183,7 @@ That seemed to have worked.
 Running the simple update works as well now:
 
 ```
-helm -n monitoring upgrade prometheus-operator stable/prometheus-operator
+$ helm -n monitoring upgrade prometheus-operator stable/prometheus-operator
 
 
 manifest_sorter.go:192: info: skipping unknown hook: "crd-install"
@@ -210,7 +210,7 @@ to create & configure Alertmanager and Prometheus instances using the Operator.
 
 Helm list is looking good:
 ```
-helm -n monitoring list                        NAME                    NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                           APP VERSION
+$ helm -n monitoring list                        NAME                    NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                           APP VERSION
 prometheus-operator     monitoring      4               2020-04-12 11:44:01.910023532 -0700 PDT deployed        prometheus-operator-8.12.2      0.37.0
 ```
 
@@ -219,23 +219,23 @@ There seems to be a workaround/fix for this error but do we really want to diabl
 Looking at the prometheus-operator Helm chart this is a GKE specific issue:
 * https://github.com/helm/charts/tree/master/stable/prometheus-operator#running-on-private-gke-clusters
 
-**tl;dr** is that when running a private GKE cluster, you need to open a firewall rule to allow the private GKE masters to reach the pod for this validation.
+**TL;DR**: when running a private GKE cluster, you need to open a firewall rule to allow the private GKE masters to reach the pod for this validation.
 
-I think the fix is to open up the firewall for the private GKE masters to reach it and the fix is not disabling this since it does the checks and checks seems to be a good thing to have.
+I think the fix is to open up the firewall for the private GKE masters to reach it and the fix is not disabling the validating webhooks since it does the checks and checks seems to be a good thing to have.
 
 The next question is which port to enable?
 
 I created a quick Terraform module to add in the firewall to my GCP network: 
 * https://github.com/ManagedKube/kubernetes-ops/releases/tag/v0.1.22
 
-Just as a test, I enabled allow all on all ports from the GKE private Kube masters and this worked.  I think this verifies that it is a port issue and by opening up the correct port, this will work.
+Just as a test, I enabled allow all on all ports from the GKE private Kube masters and this worked.  I think this verifies that it is a port issue and by opening up the correct port(s), this will work.
 
 From a previous experience we had problems with the prometheus-adapter for HPA in a private GKE cluster and the private GKE Kube master needed to reach it on port `6443`.
 
 To get prometheus-operator back to the update failure state, I am going to delete it and let the Flux `HelmRelease` install it again:
 
 ```bash
-helm -n monitoring delete prometheus-operator
+$ helm -n monitoring delete prometheus-operator
 release "prometheus-operator" uninstalled
 ```
 
@@ -245,8 +245,8 @@ Now, I still have to figure out what port needs to be opened.  Googling around d
 
 So I just started to try all of the ports in the `monitoring` namespace's service list:
 
-```
-kubectl -n monitoring get svc                      
+```bash
+$ kubectl -n monitoring get svc                      
 NAME                                           TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)                      AGE
 alertmanager-operated                          ClusterIP   None           <none>        9093/TCP,9094/TCP,9094/UDP   9m11s
 prometheus-operated                            ClusterIP   None           <none>        9090/TCP                     9m
@@ -262,8 +262,8 @@ None of those worked.  One of the Github issues above metioned port `8443`.  Whe
 
 However, I didn't know where the port was attached to.  Describing all of the pods and grepping for `8443` gave the answer:
 
-```
-kubectl -n monitoring describe pods
+```yaml
+$ kubectl -n monitoring describe pods
 Name:         prometheus-operator-operator-c5576c965-tcbqm
 Namespace:    monitoring
 Priority:     0
@@ -311,7 +311,7 @@ Containers:
     Host Port:     0/TCP
     Args:
       server
-      --listen=:8443
+      --listen=:8443                             <---- Port 8443
       --target=127.0.0.1:8080
       --key=cert/key
       --cert=cert/cert
