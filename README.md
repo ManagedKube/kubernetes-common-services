@@ -64,6 +64,12 @@ To use these items, you need to copy the folder `<repo root>/kubernetes` to the 
 
 You don't need to enable everything.  Only copy the services that you want to deploy out.
 
+You can easily copy everything by cloning this repository onto your localy machine:
+
+```
+git clone git@github.com:ManagedKube/kubernetes-common-services.git
+```
+
 ## Install the Flux Operators
 
 There are detailed instructions on how to do this [here](./kubernetes/helm/flux/).
