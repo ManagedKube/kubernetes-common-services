@@ -19,6 +19,8 @@ Automation reduces cost and errors.  To have confidence in your automation your 
 # Helm linting
 This set of test is to ensure the way that you are using the chart is valid initially and going forward with updates.  As Helm Charts updates it sometimes might deprecate a functionality, change the way something is used, or there might be a bug in it.  This category of tests are here to make sure that the way you are using the chart lints out correctly with the expected results.
 
+This is your first line of defense.  When you are developing locally you will run the linting tests to make sure everything is good before you commit and push.  When you open a PR, the PR will also run this set of tests and post the results back to the PR before a merge is allowed.
+
 # Rollback testing
 In a highly automated environment were services can be deployed automatically if it passes some tests or meets a set of requirements it is critical to know that once deployed out, it can be rolled back if needed in a manual and automated fashion.  We can write all the tests in the world and it might not catch all of the corner cases.  In most cases, writing tests is usually a trade off between time verus reward.  We might only spend enough time to reasonably assure us that the tests will catch 80% of the cases because writing the rest of the 20% of the test cases will take a lot of time and it is just not worth it.  You can look at the rollback tests as cover all insurance policy.  This one set of tests can do a catch all (kind of).
 
