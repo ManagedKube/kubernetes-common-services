@@ -11,12 +11,30 @@ The default of this chart in the `./values.yaml` file the parameter `issuer.dns.
 
 In a variation test with additional values file in `./ci/enable-dns01-issuer-values.yaml` file, the `issuer.dns.enable` is set to `true` which will make the Helm template run that code block and at which point it will fail.
 
-## running the test:
+## Switch to the branch which has the failing tests
+
+This branch `helm-chart-testing-examples` has the failing items that can be demo'ed against.
+
+## Starting the docker container for the test
+We are using the chart-testing Docker container for testing to be consistent.
 
 ```
-# ct lint --config ./kubernetes/helm//test/ct.yaml --debug
+docker run -it \
+-v ${PWD}:/opt/app \
+quay.io/helmpack/chart-testing:v3.0.0-rc.1 sh
+
+cd /opt/app/
+```
+
+The root of the repository is at: `/opt/app`
+
+## running the test:
+Run from the root of this repository
+
+```
+# ct lint --config ./kubernetes/examples/helm-chart-testing-examples/ct.yaml --debug
 Linting charts...
-Using config file:  ./kubernetes/helm//test/ct.yaml
+Using config file:  ./kubernetes/examples/helm-chart-testing-examples/ct.yaml
 ------------------------------------------------------------------------------------------------------------------------
  Configuration
 ------------------------------------------------------------------------------------------------------------------------
@@ -115,9 +133,9 @@ We can test for this.
 If you change in the file `./ci/enable-dns01-issuer-values.yaml` value `issuer.dns.enable` to `false` and run it again, you get a successful lint run:
 
 ```
-# ct lint --config ./kubernetes/helm//test/ct.yaml --debug
+# ct lint --config ./kubernetes/examples/helm-chart-testing-examples/ct.yaml --debug
 Linting charts...
-Using config file:  ./kubernetes/helm//test/ct.yaml
+Using config file:  ./kubernetes/examples/helm-chart-testing-examples/ct.yaml
 ------------------------------------------------------------------------------------------------------------------------
  Configuration
 ------------------------------------------------------------------------------------------------------------------------
