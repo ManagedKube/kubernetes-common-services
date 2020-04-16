@@ -2,7 +2,7 @@ Testing
 ============
 This document describes the area we test for and why.
 
-Automation reduces cost and errors.  To have confidence in your automation you need your tests to tell you everything is working as expected.
+Automation reduces cost and errors.  To have confidence in your automation your tests should tell you everything is working as expected.
 
 # Helm linting
 This set of test is to ensure the way that you are using the chart is valid initially and going forward with updates.  As Helm Charts updates it sometimes might deprecate a functionality, change the way something is used, or there might be a bug in it.  This category of tests are here to make sure that the way you are using the chart lints out correctly with the expected results.
