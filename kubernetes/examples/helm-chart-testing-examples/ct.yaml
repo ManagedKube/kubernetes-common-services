@@ -1,0 +1,10 @@
+# remote: k8s
+target-branch: master
+chart-dirs:
+  - kubernetes/examples/helm-chart-testing-examples
+excluded-charts:
+  - common
+chart-repos:
+  - incubator=https://kubernetes-charts-incubator.storage.googleapis.com/
+  - stable=https://kubernetes-charts.storage.googleapis.com/
+helm-extra-args: --timeout 600
