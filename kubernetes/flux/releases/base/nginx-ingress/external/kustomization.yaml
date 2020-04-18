@@ -1,0 +1,7 @@
+resources:
+- helmrelease-external.yaml
+namespace: ingress
+commonLabels:
+  k8s.managedkube.com/upstream-repository-source: https://github.com/ManagedKube/kubernetes-common-services
+  k8s.managedkube.com/path: kubernetes/releases/base/gcp/nginx-ingress
+  k8s.managedkube.com/app: nginx-ingress
