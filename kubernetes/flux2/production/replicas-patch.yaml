@@ -1,0 +1,9 @@
+---
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: podinfo
+  namespace: demo
+spec:
+  minReplicas: 2
+  maxReplicas: 4

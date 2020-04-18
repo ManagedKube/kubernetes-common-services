@@ -1,0 +1,10 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    flux.weave.works/locked: "true"
+    flux.weave.works/locked_msg: Lock deployment in production
+    flux.weave.works/locked_user: Alfonso Acosta <fons@syntacticsugar.consulting>
+  name: podinfo
+  namespace: demo

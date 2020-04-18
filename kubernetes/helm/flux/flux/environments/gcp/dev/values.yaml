@@ -1,10 +1,15 @@
-flux:
-  git:
-    url: git@github.com:ManagedKube/kubernetes-common-services.git
-    branch: master
-    path: "kubernetes/flux/releases/gcp/dev"
+# flux:
+#   git:
+#     url: git@github.com:ManagedKube/kubernetes-common-services.git
+#     branch: master
+#     path: "kubernetes/flux/releases/gcp/dev"
 # flux:
 #   git:
 #     url: git@github.com:sekka1/flux-kustomize-example.git
 #     branch: master
 #     path: "staging"
+flux:
+  git:
+    url: git@github.com:ManagedKube/kubernetes-common-services.git
+    branch: master
+    path: "kubernetes/flux2/production"
