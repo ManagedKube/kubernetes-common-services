@@ -1,8 +1,9 @@
+---
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: helmrelease-values
-  namespace: nginx-ingress
+  name: helmrelease-env-values
+  namespace: ingress
 data:
   values.yaml: |
     controller:
