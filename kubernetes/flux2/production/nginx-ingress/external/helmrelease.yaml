@@ -3,6 +3,7 @@ apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
   name: nginx-ingress-external
+  namespace: ingress
 spec:
   chart:
     version: 1.36.0
