@@ -4,4 +4,3 @@ bases:
 - ../../base/nginx-ingress/external/
 patchesStrategicMerge:
 - helmrelease.yaml
-# - replicas-patch.yaml
