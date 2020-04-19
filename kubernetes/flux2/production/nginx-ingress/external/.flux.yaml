@@ -3,3 +3,4 @@ patchUpdated:
   generators:
     - command: kustomize build .
   # patchFile: flux-patch.yaml
+  patchFile: helmrelease.yaml
