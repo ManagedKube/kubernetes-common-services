@@ -1,0 +1,15 @@
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: nginx-ingress-external
+spec:
+  chart:
+    version: 1.36.0
+  values:
+    controller:
+      electionID: ingress-controller-leader-external
+      ingressClass: nginx-external
+      replicaCount: 1
+    defaultBackend:
+      replicaCount: 1
