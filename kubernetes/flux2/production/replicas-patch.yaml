@@ -5,5 +5,5 @@ metadata:
   name: podinfo
   namespace: demo
 spec:
-  minReplicas: 2
+  minReplicas: 3
   maxReplicas: 4
