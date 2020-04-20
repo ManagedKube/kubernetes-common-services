@@ -4,3 +4,4 @@ bases:
 - ../../base/prometheus-operator/
 patchesStrategicMerge:
 - helmrelease.yaml
+- certificate.yaml
