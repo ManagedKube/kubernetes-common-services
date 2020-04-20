@@ -4,6 +4,7 @@ kind: Certificate
 metadata:
   name: prometheus
   namespace: monitoring
+spec:
   dnsNames:
   - prometheus.dev.k8s.managedkube.com
   - alertmanager.dev.k8s.managedkube.com
