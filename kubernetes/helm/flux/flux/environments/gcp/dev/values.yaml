@@ -12,4 +12,4 @@ flux:
   git:
     url: git@github.com:ManagedKube/kubernetes-common-services.git
     branch: flux2
-    path: "kubernetes/flux2/production,kubernetes/flux2/production/namespaces"
+    path: "kubernetes/flux2/gcp/dev,kubernetes/flux2/gcp/dev/namespaces"
