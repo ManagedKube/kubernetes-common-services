@@ -1,0 +1,23 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lyfted-1
+  namespace: lyfted
+  labels:
+    app: lyfted-1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lyfted-1
+  template:
+    metadata:
+      labels:
+        app: lyfted-1
+    spec:
+      containers:
+      - name: lyfted-1
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 8080
