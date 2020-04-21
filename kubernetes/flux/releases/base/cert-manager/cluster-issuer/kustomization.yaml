@@ -1,0 +1,9 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- helmrelease.yaml
+namespace: cert-manager
+commonLabels:
+  k8s.managedkube.com/path: kubernetes-releases-base-gcp-cert-manager
+  k8s.managedkube.com/app: cert-manager

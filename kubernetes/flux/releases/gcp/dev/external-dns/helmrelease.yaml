@@ -5,20 +5,27 @@ metadata:
   name: external-dns
   namespace: external-dns
 spec:
-  helmVersion: v3
-  releaseName: external-dns
   chart:
-    name: external-dns
-    repository: https://kubernetes-charts.storage.googleapis.com/
     version: 2.5.3
-  valuesFrom:
-  # Base values for all environments
-  - configMapKeyRef:
-      name: helmrelease-base-values
-      key: base-values.yaml
-      optional: false
-  # This environment specific values
-  - configMapKeyRef:
-      name: helmrelease-env-values
-      key: values.yaml
-      optional: false
+  values:
+    ## The dns provider
+    provider: google
+
+    txtOwnerId: "k8s-gcp-dev"
+
+    ## List of domains that can be managed
+    domainFilters: ["dev.k8s.managedkube.com"]
+
+    google:
+      ## Google Project to use
+      ##
+      project: "managedkube"
+      ## Google Application Credentials
+      ##
+      # Sepcify a secret containing the credentials.json file
+      #
+      # The file name has to be "credentials.json".  The file name is put into the secret
+      # as the key name and the chart is looking for the key name "credentials.json"
+      # kubectl -n external-dns create secret generic gcp-credentials-json  --from-file=/credentials.json
+      serviceAccountSecret: "gcp-credentials-json"
+      # serviceAccountKey: ""

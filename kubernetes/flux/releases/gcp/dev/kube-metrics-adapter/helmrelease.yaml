@@ -12,12 +12,5 @@ spec:
     path: kubernetes/helm/kube-metrics-adapter
     ref: master
     version: v0.1.0
-  valuesFrom:
-  - chartFileRef:
-      # path within the helm chart (from git repo) where the file is located.  E.g path from the spec.chart.path location.  Not from the Git repo root.
-      path: values.yaml
-      optional: false    
-  # - chartFileRef:
-  #     # path within the helm chart (from git repo) where the file is located.  E.g path from the spec.chart.path location.  Not from the Git repo root.
-  #     path: ../../../flux/releases/gcp/dev/kube-metrics-adapter/values.yaml
-  #     optional: false
+  values:
+    {}

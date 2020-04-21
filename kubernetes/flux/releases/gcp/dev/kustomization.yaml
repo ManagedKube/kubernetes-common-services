@@ -1,0 +1,12 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- namespaces
+- nginx-ingress/external
+- prometheus-operator
+- cert-manager
+- external-dns
+- http-echo
+- kube-metrics-adapter
+- lyfted
+- sealed-secrets
