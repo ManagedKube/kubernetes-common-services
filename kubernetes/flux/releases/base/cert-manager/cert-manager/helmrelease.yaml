@@ -1,0 +1,18 @@
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: cert-manager
+  namespace: cert-manager
+spec:
+  helmVersion: v3
+  releaseName: cert-manager
+  chart:
+    repository: https://charts.jetstack.io
+    name: cert-manager
+    version: v0.14.0
+  values:
+    controller:
+      replicaCount: 2
+      ## Name of the ingress class to route through this controller
+      ##
