@@ -2,4 +2,4 @@ flux:
   git:
     url: git@github.com:ManagedKube/kubernetes-common-services.git
     branch: master
-    path: "kubernetes/flux/aws/dev"
+    path: "kubernetes/flux/releases/aws/dev"
