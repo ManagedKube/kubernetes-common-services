@@ -7,3 +7,5 @@ resources:
 - test1.yaml
 - external-dns.yaml
 - lyfted.yaml
+- http-echo.yaml
+- sealed-secerts.yaml
