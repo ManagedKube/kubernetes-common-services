@@ -5,3 +5,4 @@ resources:
 - monitoring.yaml
 - cert-manager.yaml
 - test1.yaml
+- external-dns.yaml
