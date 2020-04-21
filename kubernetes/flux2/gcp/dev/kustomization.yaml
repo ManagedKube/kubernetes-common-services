@@ -6,3 +6,4 @@ resources:
 - prometheus-operator
 - cert-manager
 - external-dns
+- http-echo
