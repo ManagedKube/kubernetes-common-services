@@ -8,4 +8,4 @@ resources:
 - external-dns.yaml
 - lyfted.yaml
 - http-echo.yaml
-- sealed-secerts.yaml
+- sealed-secrets.yaml
