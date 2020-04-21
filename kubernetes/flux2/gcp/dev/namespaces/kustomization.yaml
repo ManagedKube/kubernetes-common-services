@@ -6,3 +6,4 @@ resources:
 - cert-manager.yaml
 - test1.yaml
 - external-dns.yaml
+- lyfted.yaml
