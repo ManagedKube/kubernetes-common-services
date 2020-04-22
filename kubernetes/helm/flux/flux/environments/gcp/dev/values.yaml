@@ -1,5 +1,5 @@
 flux:
   git:
     url: git@github.com:ManagedKube/kubernetes-common-services.git
-    branch: master
+    branch: demo
     path: "kubernetes/flux/releases/gcp/dev"
