@@ -12,7 +12,7 @@ spec:
   #   - echo.example.com
   #   secretName: echoserver-tls
   rules:
-  - host: gar1.example.com
+  - host: http-echo.dev.k8s.managedkube.com
     http:
       paths:
       - path: /
