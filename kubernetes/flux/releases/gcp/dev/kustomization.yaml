@@ -5,7 +5,7 @@ resources:
 # - nginx-ingress/external
 - prometheus-operator
 - cert-manager
-# - external-dns
+- external-dns
 # - http-echo
 - kube-metrics-adapter
 - lyfted
