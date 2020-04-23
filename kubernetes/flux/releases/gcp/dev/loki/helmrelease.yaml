@@ -1,0 +1,36 @@
+# Source: https://github.com/grafana/loki/tree/master/production/helm
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: loki
+  namespace: loki
+spec:
+  helmVersion: v3
+  releaseName: loki
+  chart:
+    name: loki
+    repository: https://grafana.github.io/loki/charts
+    version: 0.36.0
+  values:
+    loki:
+      enabled: true
+      ingress:
+        enabled: false
+        annotations: {}
+          kubernetes.io/ingress.class: "nginx-external"
+          external-dns.alpha.kubernetes.io/hostname: loki.dev.k8s.managedkube.com
+          kubernetes.io/tls-acme: "true"
+        hosts:
+          - host: loki.dev.k8s.managedkube.com
+            paths: []
+        tls:
+         - secretName: loki-tls
+           hosts:
+             - loki.dev.k8s.managedkube.com
+    fluent-bit:
+      enabled: true
+    promtail:
+      enabled: false
+    grafana:
+      enabled: true

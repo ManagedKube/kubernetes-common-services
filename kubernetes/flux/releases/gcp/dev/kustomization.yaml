@@ -8,5 +8,6 @@ resources:
 - external-dns
 - http-echo
 - kube-metrics-adapter
+- loki
 - lyfted
 - sealed-secrets
