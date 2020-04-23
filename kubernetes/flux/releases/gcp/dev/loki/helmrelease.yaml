@@ -3,13 +3,13 @@
 apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
-  name: loki
-  namespace: loki
+  name: loki-stack
+  namespace: loki-stack
 spec:
   helmVersion: v3
-  releaseName: loki
+  releaseName: loki-stack
   chart:
-    name: loki
+    name: loki-stack
     repository: https://grafana.github.io/loki/charts
     version: 0.36.0
   values:
