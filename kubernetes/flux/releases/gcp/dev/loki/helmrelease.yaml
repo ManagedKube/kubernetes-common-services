@@ -4,7 +4,7 @@ apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
   name: loki-stack
-  namespace: loki-stack
+  namespace: loki
 spec:
   helmVersion: v3
   releaseName: loki-stack
