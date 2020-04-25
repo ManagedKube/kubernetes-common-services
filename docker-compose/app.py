@@ -16,6 +16,10 @@ class Database:
         self.cur.execute("show databases")
         result = self.cur.fetchall()
         return result
+    def list_users(self):
+        self.cur.execute("select user from mysql.user")
+        result = self.cur.fetchall()
+        return result
 
 @app.route('/')
 def employees():
@@ -25,3 +29,12 @@ def employees():
         return emps
     res = db_query()
     return render_template('databases.html', result=res, content_type='application/json')
+
+@app.route('/users')
+def users():
+    def db_query():
+        db = Database()
+        emps = db.list_users()
+        return emps
+    res = db_query()
+    return render_template('users.html', result=res, content_type='application/json')

@@ -19,20 +19,20 @@ tr:nth-child(even) {
 </style>
 <head>
     <meta charset="UTF-8">
-    <title>Databases</title>
+    <title>Users</title>
 </head>
 <body>
 <table id="employees" style="width:100%">
     {% if result %}
     <tr>
-        <th>databases</th>
+        <th>Users</th>
     </tr>
     {% for row in result %}
     <tr>
         <!-- <td> {{ row.first_name }}</td>
         <td> {{ row.last_name }}</td>
         <td> {{ row.gender }}</td> -->
-        <td> {{ row }}
+        <td> {{ row.user }}
     </tr>
     {% endfor %}
     {% endif %}
