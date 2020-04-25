@@ -41,3 +41,7 @@ terraform apply
 ```
 ssh core@x.x.x.x
 ```
+
+# Thoughts
+This is definitely hacky.  I didn't spend the time to make this a real world example.  I basically took some stuff I found on the internet and stuff that I had and started to combine it together as fast as I can to satify the requirements.
+
