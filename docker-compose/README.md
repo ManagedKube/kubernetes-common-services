@@ -28,3 +28,9 @@ build
 ```
 docker-compose build
 ```
+
+
+# DB
+
+https://github.com/keitharogers/python3-mysql-example
+

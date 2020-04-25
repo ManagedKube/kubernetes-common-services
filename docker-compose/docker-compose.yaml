@@ -14,11 +14,13 @@ services:
       replicas: 1
 
   web:
+    network_mode: host
     build: .
     ports:
       - "5000:5000"
 
   mysql:
+    network_mode: host
     image: mysql:5.7
     volumes:
       - db-data:/var/lib/mysql
@@ -26,6 +28,7 @@ services:
     ports:
       - 3306:3306
     environment:
+      # MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
       MYSQL_ROOT_PASSWORD: somewordpress
       MYSQL_DATABASE: garland
       MYSQL_USER: garland
