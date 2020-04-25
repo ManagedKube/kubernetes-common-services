@@ -1,7 +1,6 @@
 Test
 =========
 
-
 * Create a container environment using Docker Compose to serve a static page grabbed from the host’s disk.
 * Set up the containers to serve the page.
 * Setup a provisioner-managed database server in the container.
@@ -10,9 +9,12 @@ Test
 * Put your provisioner files up into the Git Toptal repository.
 * Deploy this setup to a cloud provider using an automation tool like Kubernetes/Terraform/another.
 
-# Create a container environment using Docker Compose to serve a static page grabbed from the host’s disk.
-* Create a container environment using Docker Compose to serve a static page grabbed from the host’s disk.
-* Set up the containers to serve the page.
+# Docker compose usage
+
+build
+```
+docker-compose build
+```
 
 Create
 ```
@@ -24,13 +26,18 @@ Delete
 docker-compose down
 ```
 
-build
-```
-docker-compose build
-```
-
-
 # DB
 
-https://github.com/keitharogers/python3-mysql-example
+inspiration from : https://github.com/keitharogers/python3-mysql-example
 
+
+# Terraform
+
+```
+terraform init
+terraform apply
+```
+
+```
+ssh core@x.x.x.x
+```
