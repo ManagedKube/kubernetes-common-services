@@ -1,0 +1,11 @@
+---
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: prometheus
+  namespace: monitoring
+spec:
+  secretName: cert-manager-tls-cert
+  issuerRef:
+    kind: ClusterIssuer
+    name: issuer-dns01
