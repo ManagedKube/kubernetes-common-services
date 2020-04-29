@@ -123,6 +123,9 @@ kubectl apply -f namespaces/namespace.yaml
 
 ### Add an environment's values.yaml file
 
+Your current path: `/<root of the project>`
+Change directory to: `./kubernetes/helm/flux/flux`
+
 For each environment you want to deploy Flux into and for the Git repository you want it to watch, you will have to configure this.
 
 For example, if you have a `dev` environment in the cloud `gcp` watching this repository, you will make a values file like (`./environments/gcp/dev/values.yaml`):
