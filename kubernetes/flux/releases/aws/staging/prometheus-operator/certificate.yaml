@@ -1,0 +1,12 @@
+---
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: prometheus
+  namespace: monitoring
+spec:
+  dnsNames:
+  - prometheus.internal.manaedkube.com
+  - alertmanager.internal.managedkube.com
+  - grafana.internal.managedkube.com
+  
