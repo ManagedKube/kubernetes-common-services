@@ -36,6 +36,15 @@ Setting up and maintaining these application and integrating it with your cloud 
 ## What this project provides
 There is no magic here.  Everything in here you can do and everything we use is absolutely 100% open source.  The value add this project provides is an opinionated way of deploying these items and the curration of each service.  We put in the work to make sure everything is structured correctly, updated in a timely manor, and reasonably easy to use.  The other major piece is that we validate that these pieces are working in various types of Kubernetes clusters and clouds.
 
+## Who is using this:
+
+|                                           |
+|-------------------------------------------|
+| [Parsable.com](https://www.parsable.com/) |
+| [up.audio](https://up.audio/)             |
+|                                           |
+If you too are using kubernetes-common-services; please submit a PR to add your organization to the list!
+
 ## Supported Services
 
 * [cert-manager](https://github.com/jetstack/cert-manager) (For HTTPS certs)
