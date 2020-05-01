@@ -1072,4 +1072,4 @@ There are a few things to note here:
 
 We can try going to: http://prometheus.internal.managedkube.com
 
-If will notice that it will automatically redirect us to an `https` SSL/TLS encrypted connection in the browser.
+You will notice that it will automatically redirect us to an `https` SSL/TLS encrypted connection in the browser.
