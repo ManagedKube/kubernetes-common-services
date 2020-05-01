@@ -213,7 +213,7 @@ helm-operator   flux            1               2020-04-26 05:36:29.159387514 -0
 ```
 
 ## Why we are using Helm to deploy Flux and not the fluxctl tool?
-While it is easier to use the `fluxtctl` tool to get started, it does not provide us with the lifecycle management of Flux that we require in a real world setting when maintaining live infrastructure.  The `fluxctl` tool has you creating flux with a CLI command inputting the same parameters we are inputting in our `values.yaml` files.  The problem with this is how to we make this reproducible and reflected in Git?  Do we write a script to wrap around the CLI command and then pass in a values file of some sort to this script to use?  We can but that sounds pretty much like what Helm does.  So why not just use Helm?
+While it is easier to use the `fluxtctl` tool to get started, it does not provide us with the lifecycle management of Flux that we require in a real world setting when maintaining live infrastructure.  The `fluxctl` tool has you creating flux with a CLI command inputting the same parameters we are inputting in our `values.yaml` files.  The problem with this is how do we make this reproducible and reflected in Git?  Do we write a script to wrap around the CLI command and then pass in a values file of some sort to this script to use?  We can but that sounds pretty much like what Helm does.  So why not just use Helm?
 
 So it might seem like we are taking a more complex route and we agree, if you are just getting started it is a lot to take in at first.  In the long run we have found that maintaining the lifecycle of these configs in this manor works better and it is actually less for us to maintain.
 
