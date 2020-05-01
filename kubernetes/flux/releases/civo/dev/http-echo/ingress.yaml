@@ -5,7 +5,7 @@ metadata:
   namespace: http-echo
   annotations:
     # kubernetes.io/tls-acme: "true"
-    kubernetes.io/ingress.class: "nginx-external"
+    # kubernetes.io/ingress.class: "nginx-external"
     external-dns.alpha.kubernetes.io/hostname: http-echo.dev.k8s.managedkube.com
 spec:
   # tls:
