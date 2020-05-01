@@ -8,6 +8,7 @@ https://www.civo.com
 * Flux Helm Operator
 * Prometheus
 * http-echo server
+* sealed-secrets
 
 # What does not work:
 * Nginx-ingress
