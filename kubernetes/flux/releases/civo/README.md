@@ -14,3 +14,5 @@ https://www.civo.com
 * Nginx-ingress
 * external-dns - doesn't support the Civo's DNS
 * cert-manager - doesnt't support the Civo's DNS - HTTP01 validation will probably work
+
+For DNS, you can use another clouds DNS like AWS Route53 or GCP Cloud DNS.
