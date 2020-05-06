@@ -6,12 +6,15 @@
   * [Who is this project for](#who-is-this-project-for)
   * [Why do I want to use this project](#why-do-i-want-to-use-this-project)
   * [What this project provides](#what-this-project-provides)
+  * [Who is using this:](#who-is-using-this-)
   * [Supported Services](#supported-services)
+  * [Do I have to use every single one of these services?](#do-i-have-to-use-every-single-one-of-these-services-)
 - [How this works](#how-this-works)
 - [How to set this up](#how-to-set-this-up)
   * [Copy the items from this repository to your repository](#copy-the-items-from-this-repository-to-your-repository)
   * [Install the Flux Operators](#install-the-flux-operators)
   * [Deploy items into your Kubernetes cluster](#deploy-items-into-your-kubernetes-cluster)
+  * [A step by step guide](#a-step-by-step-guide)
 - [Community](#community)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
@@ -87,6 +90,12 @@ There are detailed instructions on how to do this [here](./kubernetes/helm/flux/
 ## Deploy items into your Kubernetes cluster
 
 There are detailed instructions on how to do this [here](./kubernetes/flux/).
+
+## A step by step guide
+
+This is an indepth step by step guide on how to implement this project and how to use it.
+
+[The guide](https://github.com/ManagedKube/kubernetes-common-services/blob/master/docs/setup-guide.md)
 
 # Community
 
