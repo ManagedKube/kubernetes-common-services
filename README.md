@@ -73,25 +73,6 @@ We are leveraging [Weaveworks Flux](https://github.com/fluxcd/flux) to provide u
 
 # How to set this up
 
-## Copy the items from this repository to your repository
-To use these items, you need to copy the folder `<repo root>/kubernetes` to the root of your repository.  It has to be at the root of your repository because all of the paths are pointing from that fixed location.  You can change the location but then you will have to change various paths in the deployment files to point to the correct location.
-
-You don't need to enable everything.  Only copy the services that you want to deploy out.
-
-You can easily copy everything by cloning this repository onto your localy machine:
-
-```
-git clone git@github.com:ManagedKube/kubernetes-common-services.git
-```
-
-## Install the Flux Operators
-
-There are detailed instructions on how to do this [here](./kubernetes/helm/flux/).
-
-## Deploy items into your Kubernetes cluster
-
-There are detailed instructions on how to do this [here](./kubernetes/flux/).
-
 ## A step by step guide
 
 This is an indepth step by step guide on how to implement this project and how to use it.
