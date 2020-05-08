@@ -11,13 +11,11 @@
   * [Do I have to use every single one of these services?](#do-i-have-to-use-every-single-one-of-these-services-)
 - [How this works](#how-this-works)
 - [How to set this up](#how-to-set-this-up)
-  * [Copy the items from this repository to your repository](#copy-the-items-from-this-repository-to-your-repository)
-  * [Install the Flux Operators](#install-the-flux-operators)
-  * [Deploy items into your Kubernetes cluster](#deploy-items-into-your-kubernetes-cluster)
   * [A step by step guide](#a-step-by-step-guide)
 - [Community](#community)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
 
 ## What is this project
 This project is here to make it easier to run common services in kubernetes by taking care of it for you so that you can get to working on your application faster instead of dealing with infrastructure components.
