@@ -9,17 +9,12 @@ spec:
     version: 2.21.2
   values:
     ## The dns provider
-    provider: aws
+    provider: azure
 
-    txtOwnerId: "k8s-aws-staging"
+    txtOwnerId: "k8s-azure-dev"
 
     ## List of domains that can be managed
-    domainFilters: ["dev.managedkube.com"]
+    domainFilters: ["dev.azure.managedkube.com"]
 
-    ## AWS configuration to be set via arguments/env. variables
-    ##
-    aws:
-      ## AWS credentials
-      ##
-      credentials:
-        secretName: credentials
+    azure:
+      secretName: credentials
