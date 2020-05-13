@@ -1,0 +1,5 @@
+flux:
+  git:
+    url: git@github.com:ManagedKube/kubernetes-common-services.git
+    branch: azure-cloud
+    path: "kubernetes/flux/releases/azure/dev"
