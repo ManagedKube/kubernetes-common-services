@@ -6,15 +6,16 @@
   * [Who is this project for](#who-is-this-project-for)
   * [Why do I want to use this project](#why-do-i-want-to-use-this-project)
   * [What this project provides](#what-this-project-provides)
+  * [Who is using this:](#who-is-using-this-)
   * [Supported Services](#supported-services)
+  * [Do I have to use every single one of these services?](#do-i-have-to-use-every-single-one-of-these-services-)
 - [How this works](#how-this-works)
 - [How to set this up](#how-to-set-this-up)
-  * [Copy the items from this repository to your repository](#copy-the-items-from-this-repository-to-your-repository)
-  * [Install the Flux Operators](#install-the-flux-operators)
-  * [Deploy items into your Kubernetes cluster](#deploy-items-into-your-kubernetes-cluster)
+  * [A step by step guide](#a-step-by-step-guide)
 - [Community](#community)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
 
 ## What is this project
 This project is here to make it easier to run common services in kubernetes by taking care of it for you so that you can get to working on your application faster instead of dealing with infrastructure components.
@@ -42,7 +43,9 @@ There is no magic here.  Everything in here you can do and everything we use is 
 |-------------------------------------------|
 | [Parsable.com](https://www.parsable.com/) |
 | [up.audio](https://up.audio/)             |
+| [karunalabs.com](https://karunalabs.com/) |
 |                                           |
+
 If you too are using kubernetes-common-services; please submit a PR to add your organization to the list!
 
 ## Supported Services
@@ -68,24 +71,11 @@ We are leveraging [Weaveworks Flux](https://github.com/fluxcd/flux) to provide u
 
 # How to set this up
 
-## Copy the items from this repository to your repository
-To use these items, you need to copy the folder `<repo root>/kubernetes` to the root of your repository.  It has to be at the root of your repository because all of the paths are pointing from that fixed location.  You can change the location but then you will have to change various paths in the deployment files to point to the correct location.
+## A step by step guide
 
-You don't need to enable everything.  Only copy the services that you want to deploy out.
+This is an indepth step by step guide on how to implement this project and how to use it.
 
-You can easily copy everything by cloning this repository onto your localy machine:
-
-```
-git clone git@github.com:ManagedKube/kubernetes-common-services.git
-```
-
-## Install the Flux Operators
-
-There are detailed instructions on how to do this [here](./kubernetes/helm/flux/).
-
-## Deploy items into your Kubernetes cluster
-
-There are detailed instructions on how to do this [here](./kubernetes/flux/).
+[The guide](https://github.com/ManagedKube/kubernetes-common-services/blob/master/docs/setup-guide.md)
 
 # Community
 
