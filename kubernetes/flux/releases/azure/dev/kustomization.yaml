@@ -9,4 +9,4 @@ resources:
 # - http-echo
 # - kube-metrics-adapter
 # - lyfted
-# - sealed-secrets
+- sealed-secrets
