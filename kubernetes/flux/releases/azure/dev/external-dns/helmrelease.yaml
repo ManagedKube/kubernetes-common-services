@@ -6,7 +6,7 @@ metadata:
   namespace: external-dns
 spec:
   chart:
-    version: 2.24.0
+    version: 2.21.2
   values:
     ## The dns provider
     provider: azure
