@@ -1,6 +1,5 @@
-name: pr_kustomize_output_check
+name: pr_kustomize_output_check_gcp_dev
 # This workflow is triggered on pushes to the repository.
-# on: [push]
 on:
   pull_request:
     branches:
@@ -10,12 +9,7 @@ on:
 env:
   KUSTOMIZE_DOWNLOAD_URL: "https://github.com/kubernetes-sigs/kustomize/releases/download"
   KUSTOMIZE_VERSION: "v3.5.5"
-#   KOPS_BINARY: "https://github.com/kubernetes/kops/releases/download/1.13.2/kops-linux-amd64"
-#   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-#   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-#   AWS_DEFAULT_REGION: us-east-1
-#   KOPS_STATE_STORE: ${{ secrets.KOPS_STATE_STORE }}
-#   DELETE_PREVIOUS_CLUSTER: "true"
+  KUSTOMIZE_BUILD_PATH: "./kubernetes/flux/releases/gcp/dev"
 
 jobs:
   build:
@@ -38,12 +32,4 @@ jobs:
       - name: Run kustomize check
         run: |
           export PATH=$(pwd):$PATH
-          kustomize build ./kubernetes/flux/releases/gcp/dev
-      # - name: Run Fargate job
-      #   run: |
-      #     export PATH=$(pwd):$PATH
-      #     ./containers/kubernetes/clusters/kops/run.sh
-      # - name: Run cleanup
-      #   run: |
-      #     export PATH=$(pwd):$PATH
-      #     ./containers/kubernetes/clusters/kops/cleanup.sh
+          kustomize build ${KUSTOMIZE_BUILD_PATH}
