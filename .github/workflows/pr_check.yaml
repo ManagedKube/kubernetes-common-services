@@ -1,0 +1,50 @@
+name: pr_kustomize_output_check
+# This workflow is triggered on pushes to the repository.
+# on: [push]
+on:
+  pull_request:
+    branches:
+      - master
+
+# Environment variables available to all jobs and steps in this workflow
+env:
+  KUSTOMIZE_DOWNLOAD_URL: "https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv3.5.5"
+  KUSTOMIZE_VERSION: "v3.5.5"
+#   KOPS_BINARY: "https://github.com/kubernetes/kops/releases/download/1.13.2/kops-linux-amd64"
+#   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+#   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#   AWS_DEFAULT_REGION: us-east-1
+#   KOPS_STATE_STORE: ${{ secrets.KOPS_STATE_STORE }}
+#   DELETE_PREVIOUS_CLUSTER: "true"
+
+jobs:
+  build:
+    # Job name is Update
+    name: checks
+    # This job runs on Linux
+    runs-on: ubuntu-18.04
+    steps:
+      # Checkout the repository
+      - name: Checkout
+        uses: actions/checkout@v1
+      # Set up kops
+      - name: Set up kustomize
+        run: |
+          curl -o kustomize_${KUSTOMIZE_VERSION}_linux_amd64.tar.gz --location ${KUSTOMIZE_BINARY}/${KUSTOMIZE_VERSIONS}
+          tar -zxvf kustomize_${KUSTOMIZE_VERSION}_linux_amd64.tar.gz
+          cd kustomize_${${KUSTOMIZE_VERSION}_linux_amd64
+          chmod u+x ./kustomize
+          export PATH=$(pwd):$PATH
+          kustomize version
+      # - name: Run cleanup
+      #   run: |
+      #     export PATH=$(pwd):$PATH
+      #     ./containers/kubernetes/clusters/kops/cleanup.sh
+      # - name: Run Fargate job
+      #   run: |
+      #     export PATH=$(pwd):$PATH
+      #     ./containers/kubernetes/clusters/kops/run.sh
+      # - name: Run cleanup
+      #   run: |
+      #     export PATH=$(pwd):$PATH
+      #     ./containers/kubernetes/clusters/kops/cleanup.sh
