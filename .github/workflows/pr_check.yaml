@@ -35,10 +35,10 @@ jobs:
           chmod u+x ./kustomize
           export PATH=$(pwd):$PATH
           kustomize version
-      # - name: Run cleanup
-      #   run: |
-      #     export PATH=$(pwd):$PATH
-      #     ./containers/kubernetes/clusters/kops/cleanup.sh
+      - name: Run kustomize check
+        run: |
+          export PATH=$(pwd):$PATH
+          kustomize build ./kubernetes/flux/releases/gcp/dev
       # - name: Run Fargate job
       #   run: |
       #     export PATH=$(pwd):$PATH
