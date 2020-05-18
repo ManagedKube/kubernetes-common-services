@@ -30,6 +30,7 @@ jobs:
           export PATH=$(pwd):$PATH
           kustomize version
       - name: Setup helm
+        run: |
           curl -o helm-v3.2.1-linux-amd64.tar.gz --location https://get.helm.sh/helm-v3.2.1-linux-amd64.tar.gz
           tar -zxvf helm-v3.2.1-linux-amd64.tar.gz
           cd linux-amd64
