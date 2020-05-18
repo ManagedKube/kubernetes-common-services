@@ -21,7 +21,7 @@ jobs:
       # Checkout the repository
       - name: Checkout
         uses: actions/checkout@v1
-      # Set up kops
+      # Set up kustomize
       - name: Set up kustomize
         run: |
           curl -o kustomize_${KUSTOMIZE_VERSION}_linux_amd64.tar.gz --location ${KUSTOMIZE_DOWNLOAD_URL}/kustomize%2F${KUSTOMIZE_VERSION}/kustomize_${KUSTOMIZE_VERSION}_linux_amd64.tar.gz
