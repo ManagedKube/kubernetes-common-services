@@ -36,6 +36,7 @@ jobs:
           cd hrval-action-3.2.0/src
           cp hrval.sh hrval
           chmod u+x ./hrval
+          cp hrval /usr/local/bin/hrval
           ls -l
           export PATH=$(pwd):$PATH
           hrval || true
