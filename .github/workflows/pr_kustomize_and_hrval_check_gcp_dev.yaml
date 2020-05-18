@@ -35,7 +35,6 @@ jobs:
           tar -zxvf helm-v3.2.1-linux-amd64.tar.gz
           cp linux-amd64/helm ./helmv3
           cp linux-amd64/helm ./helm
-          # cd linux-amd64
           export PATH=$(pwd):$PATH
           helm version
           helmv3 version
@@ -44,12 +43,7 @@ jobs:
           curl -o hrval-action-v3.2.0.tar.gz --location https://github.com/stefanprodan/hrval-action/archive/v3.2.0.tar.gz
           tar -zxvf hrval-action-v3.2.0.tar.gz
           cp hrval-action-3.2.0/src/hrval.sh ./hrval
-          # cd hrval-action-3.2.0/src
-          # cp hrval.sh hrval
-          # chmod u+x ./hrval
-          # ls -l
           export PATH=$(pwd):$PATH
-          # echo ${PWD}
           hrval || true
       - name: Setup kubeval
         run: |
@@ -71,8 +65,4 @@ jobs:
       - name: Run hrval check
         run: |
           export PATH=$(pwd):$PATH
-          hrval || true
-          hrval.sh || true
-          helmv3 || true
-          echo $PATH
           ./kubernetes/tests/scripts/kustomize_and_hrval_check.sh ./kubernetes/flux/releases/gcp/dev
