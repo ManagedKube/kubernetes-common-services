@@ -1,4 +1,4 @@
-name: pr_kustomize_and_hrval_check_gcp_dev
+name: pr_kustomize_and_hrval_check_aws_dev
 # This workflow is triggered on pushes to the repository.
 on:
   pull_request:
@@ -9,7 +9,7 @@ on:
 env:
   KUSTOMIZE_DOWNLOAD_URL: "https://github.com/kubernetes-sigs/kustomize/releases/download"
   KUSTOMIZE_VERSION: "v3.5.5"
-  CHECK_PATH: "./kubernetes/flux/releases/gcp/dev"
+  CHECK_PATH: "./kubernetes/flux/releases/aws/dev"
 
 jobs:
   build:
