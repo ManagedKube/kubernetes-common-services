@@ -33,7 +33,7 @@ jobs:
         run: |
           curl -o helm-v3.2.1-linux-amd64.tar.gz --location https://get.helm.sh/helm-v3.2.1-linux-amd64.tar.gz
           tar -zxvf helm-v3.2.1-linux-amd64.tar.gz
-          cp helm ./helmv3
+          cp linux-amd64/helm ./helmv3
           cd linux-amd64
           cp helm helmv3
           export PATH=$(pwd):$PATH
