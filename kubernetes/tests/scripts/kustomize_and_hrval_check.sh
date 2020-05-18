@@ -83,7 +83,8 @@ function traverse() {
 
                         log "INFO" "Processing file: ${file%/*}/tmp.out.${yaml_document_name}.yaml"
                         log "INFO" "HelmRelease name: ${yaml_document_name}"
-                        /home/runner/work/kubernetes-common-services/kubernetes-common-services/hrval-action-3.2.0/src/hrval ${file%/*}/tmp.out.${yaml_document_name}.yaml $IGNORE_VALUES $KUBE_VER $HELM_VER
+                        # /home/runner/work/kubernetes-common-services/kubernetes-common-services/hrval-action-3.2.0/src/hrval ${file%/*}/tmp.out.${yaml_document_name}.yaml $IGNORE_VALUES $KUBE_VER $HELM_VER
+                        hrval ${file%/*}/tmp.out.${yaml_document_name}.yaml $IGNORE_VALUES $KUBE_VER $HELM_VER
 
                         # Remove temp HelmRelase file
                         rm ${file%/*}/tmp.out.${yaml_document_name}.yaml

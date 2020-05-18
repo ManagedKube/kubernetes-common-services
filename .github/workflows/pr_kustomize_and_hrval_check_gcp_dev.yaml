@@ -34,28 +34,29 @@ jobs:
           curl -o helm-v3.2.1-linux-amd64.tar.gz --location https://get.helm.sh/helm-v3.2.1-linux-amd64.tar.gz
           tar -zxvf helm-v3.2.1-linux-amd64.tar.gz
           cp linux-amd64/helm ./helmv3
-          cd linux-amd64
-          cp helm helmv3
-          export PATH=$(pwd):$PATH
+          cp linux-amd64/helm ./helm
+          # cd linux-amd64
+          # export PATH=$(pwd):$PATH
           helm version
           helmv3 version
       - name: Setup hrval
         run: |
           curl -o hrval-action-v3.2.0.tar.gz --location https://github.com/stefanprodan/hrval-action/archive/v3.2.0.tar.gz
           tar -zxvf hrval-action-v3.2.0.tar.gz
-          cd hrval-action-3.2.0/src
-          cp hrval.sh hrval
-          chmod u+x ./hrval
-          ls -l
-          export PATH=$(pwd):$PATH
-          echo ${PWD}
-          ${PWD}/hrval || true
+          cp hrval-action-3.2.0/src/hrval.sh ./hrval
+          # cd hrval-action-3.2.0/src
+          # cp hrval.sh hrval
+          # chmod u+x ./hrval
+          # ls -l
+          # export PATH=$(pwd):$PATH
+          # echo ${PWD}
+          hrval || true
       - name: Setup kubeval
         run: |
           curl -o kubeval-linux-amd64.tar.gz --location https://github.com/instrumenta/kubeval/releases/download/0.15.0/kubeval-linux-amd64.tar.gz
           tar -zxvf kubeval-linux-amd64.tar.gz
           chmod u+x ./kubeval
-          export PATH=$(pwd):$PATH
+          # export PATH=$(pwd):$PATH
           ./kubeval --version
       - name: Setup yq
         run: |
