@@ -1,5 +1,9 @@
 # kubernetes-common-services
 
+![pr_kustomize_and_hrval_check_aws_dev](https://github.com/ManagedKube/kubernetes-common-services/workflows/pr_kustomize_and_hrval_check_aws_dev/badge.svg)
+![pr_kustomize_and_hrval_check_azure_dev](https://github.com/ManagedKube/kubernetes-common-services/workflows/pr_kustomize_and_hrval_check_azure_dev/badge.svg)
+![pr_kustomize_and_hrval_check_gcp_dev](https://github.com/ManagedKube/kubernetes-common-services/workflows/pr_kustomize_and_hrval_check_gcp_dev/badge.svg)
+
 # Table of Content
 - [Table of Content](#table-of-content)
   * [What is this project](#what-is-this-project)
