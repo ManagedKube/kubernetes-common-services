@@ -39,7 +39,8 @@ jobs:
           cp hrval ${GITHUB_WORKSPACE}/bin/
           ls -l
           export PATH=$(pwd):$PATH
-          hrval || true
+          echo ${PWD}
+          ${PWD}/hrval || true
       - name: Setup kubeval
         run: |
           curl -o kubeval-linux-amd64.tar.gz --location https://github.com/instrumenta/kubeval/releases/download/0.15.0/kubeval-linux-amd64.tar.gz
