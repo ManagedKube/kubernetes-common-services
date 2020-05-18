@@ -35,6 +35,7 @@ jobs:
           cd linux-amd64
           export PATH=$(pwd):$PATH
           helm version
+          helm version
       - name: Setup hrval
         run: |
           curl -o hrval-action-v3.2.0.tar.gz --location https://github.com/stefanprodan/hrval-action/archive/v3.2.0.tar.gz
