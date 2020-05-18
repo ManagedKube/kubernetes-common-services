@@ -35,6 +35,7 @@ jobs:
           tar -zxvf hrval-action-v3.2.0.tar.gz
           cd hrval-action-3.2.0/src
           cp hrval.sh hrval
+          chmod u+x ./hrval
           ls -l
           export PATH=$(pwd):$PATH
       - name: Setup kubeval
