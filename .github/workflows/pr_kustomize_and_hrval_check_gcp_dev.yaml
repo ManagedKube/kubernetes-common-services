@@ -71,5 +71,6 @@ jobs:
           export PATH=$(pwd):$PATH
           hrval || true
           hrval.sh || true
+          helmv3 || true
           echo $PATH
           ./kubernetes/tests/scripts/kustomize_and_hrval_check.sh ./kubernetes/flux/releases/gcp/dev
