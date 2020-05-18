@@ -60,4 +60,5 @@ jobs:
         run: |
           export PATH=$(pwd):$PATH
           hrval || true
+          hrval.sh || true
           ./kubernetes/tests/scripts/kustomize_and_hrval_check.sh ./kubernetes/flux/releases/gcp/dev
