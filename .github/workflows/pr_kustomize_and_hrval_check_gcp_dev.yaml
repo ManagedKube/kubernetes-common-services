@@ -1,4 +1,4 @@
-name: pr_kustomize_output_check_gcp_dev
+name: pr_kustomize_and_hrval_check_gcp_dev
 # This workflow is triggered on pushes to the repository.
 on:
   pull_request:
@@ -46,6 +46,7 @@ jobs:
         run: |
           curl -o yq --location https://github.com/mikefarah/yq/releases/download/3.3.0/yq_linux_amd64
           chmod u+x yq
+          export PATH=$(pwd):$PATH
           yq --version
       - name: Run kustomize check
         run: |
