@@ -34,6 +34,7 @@ jobs:
           curl -o hrval-action-v3.2.0.tar.gz --location https://github.com/stefanprodan/hrval-action/archive/v3.2.0.tar.gz
           tar -zxvf hrval-action-v3.2.0.tar.gz
           cd hrval-action-3.2.0/src
+          cp hrval.sh hrval
           export PATH=$(pwd):$PATH
       - name: Setup kubeval
         run: |
