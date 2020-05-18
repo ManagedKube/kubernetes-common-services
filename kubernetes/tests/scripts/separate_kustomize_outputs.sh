@@ -6,6 +6,8 @@ set -e
 KUSTOMIZE_FILE_INPUT=${1}
 
 LOG_LEVEL=${LOG_LEVEL:-INFO}
+# hrval uses this variable for Helm charts that has a path via git (eg. cluster-issuer chart)
+export GITHUB_TOKEN=${GITHUB_TOKEN:-foo}
 
 echo "LOG_LEVEL: ${LOG_LEVEL}"
 
