@@ -85,11 +85,15 @@ function traverse() {
                         log "INFO" "HelmRelease name: ${yaml_document_name}"
                         hrval ${file%/*}/tmp.out.${yaml_document_name}.yaml $IGNORE_VALUES $KUBE_VER $HELM_VER
 
-
+                        # Remove temp HelmRelase file
+                        rm ${file%/*}/tmp.out.${yaml_document_name}.yaml
                     fi
 
                     let COUNTER=COUNTER+1
                 done
+
+                # Remove temp kustomize all output file
+                rm "${file%/*}/tmp.out.yaml"
 
             fi
 
