@@ -37,10 +37,10 @@ function traverse() {
             if [ "${file##*/}" == "kustomization.yaml" ]; then
                 log "DEBUG" "Directory: ${file%/*}"
                 log "DEBUG" "Found a kustomization.yaml file and path: ${file}"
-                log "DEBUG" "Running kustomize build: /opt/bin/kustomize build ${file%/*} -o ${file%/*}/tmp.out.yaml"
+                log "DEBUG" "Running kustomize build: kustomize build ${file%/*} -o ${file%/*}/tmp.out.yaml"
 
                 # Kustomize output of all files in this directory into one file
-                /opt/bin/kustomize build ${file%/*} -o "${file%/*}/tmp.out.yaml"
+                kustomize build ${file%/*} -o "${file%/*}/tmp.out.yaml"
 
                 # Add yaml section break to the beginning of the file - Kustomize does not output this for the first item
                 sed -i '1s/^/---\n/' "${file%/*}/tmp.out.yaml"
