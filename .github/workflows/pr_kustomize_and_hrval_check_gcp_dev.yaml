@@ -36,7 +36,6 @@ jobs:
           cd hrval-action-3.2.0/src
           cp hrval.sh hrval
           chmod u+x ./hrval
-          cp hrval ${GITHUB_WORKSPACE}/bin/
           ls -l
           export PATH=$(pwd):$PATH
           echo ${PWD}
