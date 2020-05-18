@@ -36,7 +36,7 @@ jobs:
           cp linux-amd64/helm ./helmv3
           cp linux-amd64/helm ./helm
           # cd linux-amd64
-          # export PATH=$(pwd):$PATH
+          export PATH=$(pwd):$PATH
           helm version
           helmv3 version
       - name: Setup hrval
@@ -48,7 +48,7 @@ jobs:
           # cp hrval.sh hrval
           # chmod u+x ./hrval
           # ls -l
-          # export PATH=$(pwd):$PATH
+          export PATH=$(pwd):$PATH
           # echo ${PWD}
           hrval || true
       - name: Setup kubeval
@@ -56,7 +56,7 @@ jobs:
           curl -o kubeval-linux-amd64.tar.gz --location https://github.com/instrumenta/kubeval/releases/download/0.15.0/kubeval-linux-amd64.tar.gz
           tar -zxvf kubeval-linux-amd64.tar.gz
           chmod u+x ./kubeval
-          # export PATH=$(pwd):$PATH
+          export PATH=$(pwd):$PATH
           ./kubeval --version
       - name: Setup yq
         run: |
