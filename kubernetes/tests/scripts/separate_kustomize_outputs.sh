@@ -1,11 +1,9 @@
 #! /usr/bin/env bash
 
-KUSTOMIZE_FILE_INPUT=${1}
+# Exit on error
+set -e
 
-# IFS=''
-# while read data; do
-#     echo "$data" >> /tmp/out2.txt
-# done < ${KUSTOMIZE_FILE_INPUT}
+KUSTOMIZE_FILE_INPUT=${1}
 
 LOG_LEVEL=${LOG_LEVEL:-INFO}
 
