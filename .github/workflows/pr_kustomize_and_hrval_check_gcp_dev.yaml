@@ -52,3 +52,7 @@ jobs:
         run: |
           export PATH=$(pwd):$PATH
           kustomize build ${KUSTOMIZE_BUILD_PATH}
+      - name: Run hrval check
+        run: |
+          export PATH=$(pwd):$PATH
+          /opt/app/kubernetes/tests/scripts/separate_kustomize_outputs.sh /opt/app/kubernetes/flux/releases/gcp/dev
