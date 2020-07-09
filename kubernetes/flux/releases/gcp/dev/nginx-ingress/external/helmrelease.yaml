@@ -14,3 +14,9 @@ spec:
       replicaCount: 1
     defaultBackend:
       replicaCount: 1
+      # service:
+      #   annotations:
+      #     cloud.google.com/load-balancer-type: "Internal"
+      #     networking.gke.io/internal-load-balancer-allow-global-access: "true"
+      #     # https://cloud.google.com/kubernetes-engine/docs/how-to/ingress-features
+      #     cloud.google.com/backend-config: '{"default": "backendconfig"}'
