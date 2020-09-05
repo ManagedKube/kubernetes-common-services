@@ -1,0 +1,14 @@
+apiVersion: source.toolkit.fluxcd.io/v1alpha1
+kind: GitRepository
+metadata:
+  creationTimestamp: null
+  name: gitops-system
+  namespace: gitops-system
+spec:
+  interval: 1m0s
+  ref:
+    branch: master
+  secretRef:
+    name: gitops-system
+  url: ssh://git@github.com/ManagedKube/kubernetes-common-services
+status: {}

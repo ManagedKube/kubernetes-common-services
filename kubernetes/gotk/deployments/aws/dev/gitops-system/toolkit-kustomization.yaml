@@ -1,0 +1,14 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1alpha1
+kind: Kustomization
+metadata:
+  creationTimestamp: null
+  name: gitops-system
+  namespace: gitops-system
+spec:
+  interval: 10m0s
+  path: ./kubernetes/gotk/deployments/aws/dev
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: gitops-system
+status: {}
