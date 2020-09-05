@@ -1,0 +1,11 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1alpha1
+kind: GitRepository
+metadata:
+  name: kubernetes-common-services
+  namespace: gitops-system
+spec:
+  interval: 30s
+  ref:
+    branch: master
+  url: https://github.com/ManagedKube/kubernetes-common-services
