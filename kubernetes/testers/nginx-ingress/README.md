@@ -16,7 +16,7 @@ How will we run these tests?
 
 ### Local testing
 * Launch Kind cluster
-* Install gotk - Tell it to look at the branch we are testing on
+* Install gotk - Tell it to look at the branch we are testing on (or the user can tell it to use another branch for upgrade testing)
 * Wait until gotk syncs
 * Run the tests
 
