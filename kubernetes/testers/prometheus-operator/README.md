@@ -1,6 +1,12 @@
 prometheus-operator tests
 =========================
 
+## Port forward to the prometheus server
+
+```
+kubectl -n monitoring port-forward service/prometheus-operated 9090
+```
+
 ## Check to make sure the Prometheus GUI is running
 
 ```
