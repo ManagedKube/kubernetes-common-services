@@ -58,3 +58,66 @@ gotk bootstrap github \
   --branch $GIT_BRANCH
 ```
 
+## Directory structure
+
+```
+├── aws
+│   ├── clusters
+│   │   └── dev-us                                         <---(2)
+│   │       ├── common
+│   │       │   ├── app-cluster.yaml                       <---(4)
+│   │       │   └── README.me
+│   │       └── gitops-system                              <---(3)
+│   │           ├── toolkit-components.yaml
+│   │           ├── toolkit-kustomization.yaml
+│   │           └── toolkit-source.yaml
+│   └── common
+│       └── app-clusters                                   <---(5)
+│           ├── namespaces
+│           │   ├── ingress.yaml
+│           │   ├── kustomization.yaml
+│           │   └── monitoring.yaml
+│           ├── prometheus-operator
+│           │   ├── helmrelease.yaml
+│           │   └── kustomization.yaml
+│           ├── sources
+│           │   ├── gitrepository
+│           │   │   └── kubernetes-common-services.yaml
+│           │   └── helmrepository
+│           │       ├── kubernetes-charts.yaml
+│           │       ├── prometheus-community.yaml
+│           │       └── sumologic.yaml
+│           └── sumologic
+│               ├── helmrelease.yaml
+│               └── kustomization.yaml
+└── base                                                    <---(1)
+    ├── prometheus-operator
+    │   ├── helmrelease.yaml
+    │   ├── kustomization.yaml
+    │   └── README.md
+    └── sumologic
+        ├── helmrelease.yaml
+        ├── kustomization.yaml
+        └── README.md
+```
+
+### (1) base
+The base folders holds common configuration across all clusters on how an application should be configured.  These are the defaults settings we would like for the applications but this can be overriden by the local's cluster values.
+
+### (2) dev-us
+This is a cluster we are naming `dev-us`.  This is where we will hold various clusters and this is an example of one cluster and how it is configured.
+
+### (3) gitops-system
+This is the directory that the `gotk` tool creates and pushes into this repository on how it configured itself in this cluster.  As we update `gotk` and apply it to a cluster, this will also change.
+
+### (4) app-cluster.yaml
+A lot of our clusters looks fairly similar because we have a promotion scheme going from dev -> qa -> prod.  Each of these clusters has the same items installed on it and most likely only the application version changes as we promote versions and new items from each cluster.  You can think of this as an "include" these items into this cluster.
+
+This allows us to keep these configurations DRY.
+
+While we can still put items under `./aws/clusters/dev-us`, that are not common or that is new and we only want to test in this cluster into the clusters local path which will mean this only gets deployed to this cluster.
+
+### (5) app-cluster
+`app-cluster` is a cluster profile type.  Our application clusters will all have these items in it.  
+
+We can create new cluster profile types by creating more directories under `./aws/common` and "including" them from a cluster.  For a cluster, we can even include multiple items under `./aws/common` if we want to decompose the profiles even more.
