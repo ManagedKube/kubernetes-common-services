@@ -11,6 +11,6 @@ spec:
       version: 1.2.2
   values:
     sumologic:
-      accessId: su5HxguCa08i9z
-      accessKey: aVJDqIlfAuWmZIhcvSB7Nmr6NHAyQqgmovjIygqX9SFT1Y6lOyCxp2gFbDnVoFHv
+      accessId: xxx
+      accessKey: xxx
       clusterName: dev-us
