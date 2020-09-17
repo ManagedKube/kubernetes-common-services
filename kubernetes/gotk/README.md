@@ -63,7 +63,7 @@ gotk bootstrap github \
 ```
 ├── aws
 │   ├── clusters
-│   │   └── dev-us                                         <---(2)
+│   │   └── dev                                         <---(2)
 │   │       ├── common
 │   │       │   ├── app-cluster.yaml                       <---(4)
 │   │       │   └── README.me
@@ -104,8 +104,8 @@ gotk bootstrap github \
 ### (1) base
 The base folders holds common configuration across all clusters on how an application should be configured.  These are the defaults settings we would like for the applications but this can be overriden by the local's cluster values.
 
-### (2) dev-us
-This is a cluster we are naming `dev-us`.  This is where we will hold various clusters and this is an example of one cluster and how it is configured.
+### (2) dev
+This is a cluster we are naming `dev`.  This is where we will hold various clusters and this is an example of one cluster and how it is configured.
 
 ### (3) gitops-system
 This is the directory that the `gotk` tool creates and pushes into this repository on how it configured itself in this cluster.  As we update `gotk` and apply it to a cluster, this will also change.
@@ -115,7 +115,7 @@ A lot of our clusters looks fairly similar because we have a promotion scheme go
 
 This allows us to keep these configurations DRY.
 
-While we can still put items under `./aws/clusters/dev-us`, that are not common or that is new and we only want to test in this cluster into the clusters local path which will mean this only gets deployed to this cluster.
+While we can still put items under `./aws/clusters/dev`, that are not common or that is new and we only want to test in this cluster into the clusters local path which will mean this only gets deployed to this cluster.
 
 ### (5) app-cluster
 `app-cluster` is a cluster profile type.  Our application clusters will all have these items in it.  

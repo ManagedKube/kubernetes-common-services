@@ -1,0 +1,9 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1alpha1
+kind: HelmRepository
+metadata:
+  name: sumologic
+  namespace: gitops-system
+spec:
+  interval: 1m
+  url: https://sumologic.github.io/sumologic-kubernetes-collection

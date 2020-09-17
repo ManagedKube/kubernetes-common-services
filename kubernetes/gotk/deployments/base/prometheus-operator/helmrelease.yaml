@@ -1,0 +1,47 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2alpha1
+kind: HelmRelease
+metadata:
+  name: prometheus-operator
+spec:
+  interval: 1m
+  # helmVersion: v3
+  releaseName: prometheus-operator
+  chart:
+    spec:
+      chart: kube-prometheus-stack
+      version: 9.4.2
+      interval: 1m
+      sourceRef:
+        kind: HelmRepository
+        name: prometheus-community
+        namespace: gitops-system
+  values:
+    # Configuration values.yaml source: https://github.com/prometheus-community/helm-charts/blob/main/charts/kube-prometheus-stack/values.yaml
+    kubelet:
+      serviceMonitor:
+        https: false
+    kubeProxy:
+      enabled: false
+
+    ## Create default rules for monitoring the cluster
+    ##
+    defaultRules:
+      create: true
+      rules:
+        etcd: false
+
+    prometheus:
+      prometheusSpec:
+        additionalScrapeConfigs:
+        # https://prometheus.io/docs/prometheus/latest/federation/#configuring-federation
+        # - job_name: 'federate'
+        #   scrape_interval: 15s
+
+        #   honor_labels: true
+        #   metrics_path: '/federate'
+
+        #   params:
+        #     'match[]':
+        #       - '{job="prometheus"}'
+        #       - '{__name__=~"job:.*"}'

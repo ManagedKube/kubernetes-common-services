@@ -1,0 +1,12 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1alpha1
+kind: Kustomization
+metadata:
+  name: app-cluster
+  namespace: gitops-system
+spec:
+  interval: 10m0s
+  path: ./kubernetes/gotk/deployments/aws/common/app-clusters
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: gitops-system

@@ -1,0 +1,64 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2alpha1
+kind: HelmRelease
+metadata:
+  name: prometheus-operator
+  namespace: monitoring
+spec:
+  chart:
+    spec:
+      # The Helm chart version
+      version: 9.4.2
+  values:
+    prometheus:
+      ingress:
+        enabled: true
+        annotations:
+          external-dns.alpha.kubernetes.io/hostname: prometheus.internal.dev.us-east-1.healthtap.com
+          kubernetes.io/ingress.class: nginx-internal
+          certmanager.k8s.io/cluster-issuer: issuer-dns01
+          certmanager.k8s.io/acme-http01-edit-in-place: "true"
+
+        hosts:
+          - prometheus.internal.dev.us-east-1.healthtap.com
+
+        tls:
+          - secretName: prometheus-general-tls
+            hosts:
+              - prometheus.internal.dev.us-east-1.healthtap.com
+    grafana:
+      ingress:
+        enabled: true
+
+        annotations:
+          external-dns.alpha.kubernetes.io/hostname: grafana.internal.dev.us-east-1.healthtap.com
+          kubernetes.io/ingress.class: nginx-internal
+          certmanager.k8s.io/cluster-issuer: issuer-dns01
+          certmanager.k8s.io/acme-http01-edit-in-place: "true"
+
+        hosts:
+        - grafana.internal.dev.us-east-1.healthtap.com
+
+        tls:
+        - secretName: grafana-general-tls
+          hosts:
+          - grafana.internal.dev.us-east-1.healthtap.com
+
+    alertmanager:
+
+      ingress:
+        enabled: true
+
+        annotations:
+          external-dns.alpha.kubernetes.io/hostname: alertmanager.internal.dev.us-east-1.healthtap.com
+          kubernetes.io/ingress.class: nginx-internal
+          certmanager.k8s.io/cluster-issuer: issuer-dns01
+          certmanager.k8s.io/acme-http01-edit-in-place: "true"
+
+        hosts:
+          - alertmanager.internal.dev.us-east-1.healthtap.com
+
+        tls:
+          - secretName: alertmanager-general-tls
+            hosts:
+              - alertmanager.internal.dev.us-east-1.healthtap.com          
