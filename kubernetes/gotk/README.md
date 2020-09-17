@@ -63,7 +63,7 @@ gotk bootstrap github \
 ```
 ├── aws
 │   ├── clusters
-│   │   └── dev                                         <---(2)
+│   │   └── dev                                            <---(2)
 │   │       ├── common
 │   │       │   ├── app-cluster.yaml                       <---(4)
 │   │       │   └── README.me
