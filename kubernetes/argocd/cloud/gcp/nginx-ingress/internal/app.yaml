@@ -14,8 +14,17 @@ spec:
       selfHeal: true
   source:
     repoURL: https://kubernetes.github.io/ingress-nginx
-    targetRevision: 3.23.0
     chart: ingress-nginx
+    targetRevision: 3.23.0
+    helm:
+      values: |
+        controller:
+          service:
+            internal:
+              enabled: true
+              annotations:
+                # Create internal LB
+                cloud.google.com/load-balancer-type: "Internal"
   destination:
     server: https://kubernetes.default.svc
     namespace: ingress
