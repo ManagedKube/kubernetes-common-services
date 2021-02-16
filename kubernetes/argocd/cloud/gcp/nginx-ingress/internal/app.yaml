@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: nginx-ingress-internal
+  name: ingress-nginx-internal
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -15,7 +15,7 @@ spec:
   source:
     repoURL: https://kubernetes.github.io/ingress-nginx
     targetRevision: 3.23.0
-    chart: nginx-ingress
+    chart: ingress-nginx
   destination:
     server: https://kubernetes.default.svc
     namespace: ingress
