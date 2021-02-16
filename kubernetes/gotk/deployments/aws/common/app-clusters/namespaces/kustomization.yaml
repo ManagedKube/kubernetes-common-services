@@ -9,4 +9,4 @@ resources:
 # - loki.yaml
 # - lyfted.yaml
 # - http-echo.yaml
-# - sealed-secrets.yaml
+- sealed-secrets.yaml

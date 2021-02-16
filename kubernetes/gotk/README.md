@@ -17,6 +17,10 @@ A GitOps workflow has many desireable features to it:
 This is the open source GitOps Tool Kit that we are using:
 * https://github.com/fluxcd/toolkit/releases
 
+**IMPORTANT NOTE**: Use this version of the `gotk` cli:
+**VERSION**: v0.1.0
+URL: https://github.com/fluxcd/toolkit/releases/tag/v0.1.0
+
 ## Launching
 
 ### Set your GITHUB access
@@ -28,7 +32,7 @@ You can create a personal Github token with these instructions:
 export GITHUB_TOKEN=<your-token>
 ```
 
-This personal token is not used as a deployment mechanism.  This token is used in the provisioning process.  It will use this token to create a deployment ssh key in the repository.  This is more of a convenience way of adding all the necessary permissions for the in-cluster source controllers can reach the Git repository to sync.  If you don't want to do this, you can alternatively add the Kubernetes secret into the `gitops-system` namespace with the private key to use. 
+This personal token is not used as a deployment mechanism.  This token is used in the provisioning process ONLY.  It will use this token to create a deployment ssh key in the repository.  This is more of a convenience way of adding all the necessary permissions for the in-cluster source controllers can reach the Git repository to sync.  If you don't want to do this, you can alternatively add the Kubernetes secret into the `gotk-system` namespace with the private key to use.
 
 ### Setting up the `dev` cluster
 Bootstrap the `dev` cluster:
@@ -46,7 +50,7 @@ export GIT_BRANCH=master
 ```
 gotk bootstrap github \
   --version=$GOTK_VERSION \
-  --namespace gitops-system \
+  --namespace gotk-system \
   --components=source-controller,kustomize-controller,helm-controller,notification-controller \
   --owner=$GITHUB_USER \
   --hostname=$REPOSITORY_HOSTNAME \
@@ -67,7 +71,7 @@ gotk bootstrap github \
 │   │       ├── common
 │   │       │   ├── app-cluster.yaml                       <---(4)
 │   │       │   └── README.me
-│   │       └── gitops-system                              <---(3)
+│   │       └── gotk-system                              <---(3)
 │   │           ├── toolkit-components.yaml
 │   │           ├── toolkit-kustomization.yaml
 │   │           └── toolkit-source.yaml
@@ -107,7 +111,7 @@ The base folders holds common configuration across all clusters on how an applic
 ### (2) dev
 This is a cluster we are naming `dev`.  This is where we will hold various clusters and this is an example of one cluster and how it is configured.
 
-### (3) gitops-system
+### (3) gotk-system
 This is the directory that the `gotk` tool creates and pushes into this repository on how it configured itself in this cluster.  As we update `gotk` and apply it to a cluster, this will also change.
 
 ### (4) app-cluster.yaml
