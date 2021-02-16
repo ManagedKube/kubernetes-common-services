@@ -20,11 +20,9 @@ spec:
       values: |
         controller:
           service:
-            internal:
-              enabled: true
-              annotations:
-                # Create internal LB
-                cloud.google.com/load-balancer-type: "Internal"
+            annotations:
+              # Create internal LB
+              cloud.google.com/load-balancer-type: "Internal"
   destination:
     server: https://kubernetes.default.svc
     namespace: ingress
