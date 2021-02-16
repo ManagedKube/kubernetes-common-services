@@ -14,7 +14,7 @@ spec:
       selfHeal: true
   source:
     repoURL: https://kubernetes.github.io/ingress-nginx
-    # targetRevision: HEAD
+    targetRevision: 3.23.0
     chart: nginx-ingress
   destination:
     server: https://kubernetes.default.svc
