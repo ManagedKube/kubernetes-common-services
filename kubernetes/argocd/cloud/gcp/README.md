@@ -7,7 +7,7 @@ This will point to the gcp dir and recursively sync everything over
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: nginx-ingress-internal
+  name: k8s-infrastructure
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -19,12 +19,12 @@ spec:
       prune: true
       selfHeal: true
   source:
-    repoURL: git@github.com:ManagedKube/kubernetes-common-services.git
+    repoURL: https://github.com/ManagedKube/kubernetes-common-services.git
     targetRevision: HEAD
     path: kubernetes/argocd/cloud/gcp
     directory:
       recurse: true
   destination:
     server: https://kubernetes.default.svc
-    namespace: ingress
+    namespace: argocd
 ```
