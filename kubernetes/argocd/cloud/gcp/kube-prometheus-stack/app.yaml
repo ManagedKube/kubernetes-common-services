@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kube-prometheus-stack
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  # https://argoproj.github.io/argo-cd/user-guide/auto_sync/
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+  source:
+    # https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack
+    repoURL: https://prometheus-community.github.io/helm-charts
+    chart: prometheus-community/kube-prometheus-stack
+    targetRevision: 13.7.2
+    # helm:
+    #   values: |
+    #     controller:
+    #       service:
+    #         annotations:
+    #           # Create internal LB
+    #           cloud.google.com/load-balancer-type: "Internal"
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: monitoring
