@@ -6,7 +6,7 @@ metadata:
   namespace: ingress
 spec:
   chart:
-    version: 1.36.0
+    version: 1.36.3
   values:
     controller:
       electionID: ingress-controller-leader-external
